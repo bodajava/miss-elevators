@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "مصاعد طعام وخدمات | شركة مصر العربية للمصاعد",
     description: "مصاعد طعام وخدمات للمطاعم والفنادق والمطابخ في مصر.",
     url: "https://misr-elevators.com/ar/services/food-elevators",
-    images: [{ url: "https://misr-elevators.com/images/hero-elevator.png", width: 1200, height: 630, alt: "مصعد طعام من شركة مصر العربية للمصاعد" }],
+    images: [{ url: "https://misr-elevators.com/images/logo.jpg", width: 1200, height: 630, alt: "مصعد طعام من شركة مصر العربية للمصاعد" }],
   },
 };
 

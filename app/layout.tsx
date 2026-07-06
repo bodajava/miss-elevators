@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     url: "https://misr-elevators.com",
     images: [
       {
-        url: "https://misr-elevators.com/images/hero-elevator.png",
+        url: "https://misr-elevators.com/images/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Masr Al Arabya Elevators - Premium Elevator Installation Egypt",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Masr Al Arabya Elevators | Luxury Lifts in Egypt",
     description: "Egypt's leading elevator company since 1979. Premium panoramic, hydraulic & passenger elevators. EN 81 certified.",
-    images: ["https://misr-elevators.com/images/hero-elevator.png"],
+    images: ["https://misr-elevators.com/images/logo.jpg"],
   },
   robots: {
     index: true,

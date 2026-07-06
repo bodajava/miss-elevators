@@ -25,7 +25,7 @@ const content = {
       title: "Electric Elevators",
       subtitle: "Reliable vertical transit for commercial & residential buildings",
       description: "Our electric traction elevators combine German and Italian engineering with precision installation. Designed for medium to high-rise buildings, they deliver smooth, quiet, and energy-efficient performance.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-07 00.36.00.jpg",
       features: [
         "German & Italian traction machines",
         "Energy-efficient VVVF drives",
@@ -50,7 +50,7 @@ const content = {
       title: "Hydraulic Elevators",
       subtitle: "Smooth, robust lifting for villas & low-rise buildings",
       description: "Ideal for low-rise buildings and private villas, our hydraulic elevators offer smooth operation, high reliability, and require no overhead machine room — perfect for existing structures.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-07 01.42.41.jpg",
       features: [
         "No overhead machine room required",
         "Smooth & quiet hydraulic operation",
@@ -75,7 +75,7 @@ const content = {
       title: "Panoramic Elevators",
       subtitle: "Luxury glass elevators that transform your space",
       description: "Make a statement with our panoramic glass elevators. Designed for luxury villas, hotels, malls, and premium commercial spaces, these elevators combine breathtaking views with world-class German engineering.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-05 06.53.17.jpg",
       features: [
         "Full-height tempered glass panels",
         "Custom round or rectangular designs",
@@ -100,7 +100,7 @@ const content = {
       title: "Food & Service Elevators",
       subtitle: "Compact vertical transport for hospitality & kitchens",
       description: "Streamline your operations with our compact service elevators. Perfect for restaurants, hotels, kitchens, and villas, they safely transport food, goods, and light cargo between floors.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-06 21.36.58.jpg",
       features: [
         "Compact footprint — fits tight spaces",
         "Stainless steel interior options",
@@ -127,7 +127,7 @@ const content = {
       title: "مصاعد كهربائية",
       subtitle: "نقل رأسي موثوق للمباني التجارية والسكنية",
       description: "تجمع مصاعدنا الكهربائية بين الهندسة الألمانية والإيطالية والتركيب الدقيق. صُممت للمباني متوسطة وعالية الارتفاع، وتتميز بأداء سلس وهادئ وموفر للطاقة.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-07 00.36.00.jpg",
       features: [
         "ماكينات جر ألمانية وإيطالية",
         "محركات VVVF موفرة للطاقة",
@@ -152,7 +152,7 @@ const content = {
       title: "مصاعد هيدروليك",
       subtitle: "رفع سلس وقوي للفيلات والمباني منخفضة الارتفاع",
       description: "مناسبة للمباني منخفضة الارتفاع والفيلات الخاصة، توفر مصاعدنا الهيدروليكية تشغيلاً سلساً وموثوقية عالية دون الحاجة إلى غرفة ماكينة علوية — مثالية للمباني القائمة.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-07 01.42.41.jpg",
       features: [
         "لا حاجة لغرفة ماكينة علوية",
         "تشغيل هيدروليك سلس وهادئ",
@@ -177,7 +177,7 @@ const content = {
       title: "مصاعد بانوراما",
       subtitle: "مصاعد زجاجية فاخرة تحول مساحتك",
       description: "أضف لمسة جمالية مع مصاعدنا البانورامية الزجاجية. صُممت للفلل الفاخرة والفنادق والمولات والمساحات التجارية الراقية، وتجمع بين الإطلالات الخلابة والهندسة الألمانية العالمية.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-05 06.53.17.jpg",
       features: [
         "ألواح زجاجية مقسّى بارتفاع كامل",
         "تصاميم دائرية أو مستطيلة مخصصة",
@@ -202,7 +202,7 @@ const content = {
       title: "مصاعد طعام وخدمات",
       subtitle: "نقل رأسي مضغوط للضيافة والمطابخ",
       description: "بسّط عملياتك مع مصاعد الخدمات المدمجة لدينا. مثالية للمطاعم والفنادق والمطابخ والفيلات، وتنقل الطعام والبضائع والحمولات الخفيفة بأمان بين الطوابق.",
-      heroImage: "/images/2026-07-05 07.13.17.jpg",
+      heroImage: "/images/2026-07-06 21.36.58.jpg",
       features: [
         "بصمة مدمجة — تناسب المساحات الضيقة",
         "خيارات داخلية من الستانلس ستيل",

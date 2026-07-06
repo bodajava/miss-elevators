@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Hydraulic Elevators | Masr Al Arabya Elevators",
     description: "Hydraulic elevator solutions for villas, low-rise buildings, and special-use spaces across Egypt.",
     url: "https://misr-elevators.com/services/hydraulic-elevators",
-    images: [{ url: "https://misr-elevators.com/images/hero-elevator.png", width: 1200, height: 630, alt: "Hydraulic Elevator by Masr Al Arabya Elevators" }],
+    images: [{ url: "https://misr-elevators.com/images/logo.jpg", width: 1200, height: 630, alt: "Hydraulic Elevator by Masr Al Arabya Elevators" }],
   },
 };
 

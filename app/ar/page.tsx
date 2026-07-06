@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "مصر العربية للمصاعد",
     images: [
       {
-        url: "https://misr-elevators.com/images/hero-elevator.png",
+        url: "https://misr-elevators.com/images/logo.jpg",
         width: 1200,
         height: 630,
         alt: "شركة مصر العربية للمصاعد - مصعد بانورامي زجاجي فاخر بمصر",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "مصر العربية للمصاعد | مصاعد فلل وبانوراما في مصر",
     description: "شركة مصاعد رائدة في مصر منذ ١٩٧٩. مصاعد فلل وبانوراما ومصاعد هيدروليك بمكونات ألمانية وإيطالية معتمدة.",
-    images: ["https://misr-elevators.com/images/hero-elevator.png"],
+    images: ["https://misr-elevators.com/images/logo.jpg"],
   },
   robots: {
     index: true,
@@ -82,7 +82,7 @@ export default function HomeAr() {
         "url": "https://misr-elevators.com/ar",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://misr-elevators.com/images/hero-elevator.png",
+          "url": "https://misr-elevators.com/images/logo.jpg",
           "caption": "مصر العربية للمصاعد - شركة مصاعد فاخرة في مصر"
         },
         "foundingDate": "1979",
@@ -103,7 +103,7 @@ export default function HomeAr() {
         "@type": "LocalBusiness",
         "@id": "https://misr-elevators.com/ar/#localbusiness",
         "name": "مصر العربية للمصاعد",
-        "image": "https://misr-elevators.com/images/hero-elevator.png",
+        "image": "https://misr-elevators.com/images/logo.jpg",
         "telephone": "+20-2-3761-4500",
         "email": "info@arabegypt-elevators.com",
         "address": {

@@ -332,7 +332,7 @@ export default function ServicesSection({ lang = "en" }: ServicesSectionProps) {
               >
               {/* Featured service card image background */}
               <Image
-                src="/images/2026-07-05 07.13.17.jpg"
+                src="/images/2026-07-07 01.41.15.jpg"
                 alt={isRTL ? "توريد وتركيب مصاعد معتمد" : "Certified elevator supply & installation"}
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"

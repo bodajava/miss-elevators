@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Electric Elevators | Masr Al Arabya Elevators",
     description: "Premium electric traction elevators for buildings, offices, and commercial spaces across Egypt.",
     url: "https://misr-elevators.com/services/electric-elevators",
-    images: [{ url: "https://misr-elevators.com/images/hero-elevator.png", width: 1200, height: 630, alt: "Electric Elevator by Masr Al Arabya Elevators" }],
+    images: [{ url: "https://misr-elevators.com/images/logo.jpg", width: 1200, height: 630, alt: "Electric Elevator by Masr Al Arabya Elevators" }],
   },
 };
 

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Masr Al Arabya Elevators",
     images: [
       {
-        url: "https://misr-elevators.com/images/hero-elevator.png",
+        url: "https://misr-elevators.com/images/logo.jpg",
         width: 1200,
         height: 630,
         alt: "Masr Al Arabya Elevators - Premium Glass Elevator Egypt",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Masr Al Arabya Elevators | Premium Lifts in Egypt",
     description: "Leading elevator company in Giza & Egypt. Custom panoramic glass lifts, luxury home villa elevators, and European certified components.",
-    images: ["https://misr-elevators.com/images/hero-elevator.png"],
+    images: ["https://misr-elevators.com/images/logo.jpg"],
   },
 };
 
@@ -55,7 +55,7 @@ export default function Home() {
         "url": "https://misr-elevators.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://misr-elevators.com/images/hero-elevator.png",
+          "url": "https://misr-elevators.com/images/logo.jpg",
           "caption": "Masr Al Arabya Elevators - Premium Elevator Company Egypt"
         },
         "foundingDate": "1979",
@@ -76,7 +76,7 @@ export default function Home() {
         "@type": "LocalBusiness",
         "@id": "https://misr-elevators.com/#localbusiness",
         "name": "Masr Al Arabya Elevators",
-        "image": "https://misr-elevators.com/images/hero-elevator.png",
+        "image": "https://misr-elevators.com/images/logo.jpg",
         "telephone": "+20-2-3761-4500",
         "email": "info@arabegypt-elevators.com",
         "address": {

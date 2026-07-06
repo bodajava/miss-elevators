@@ -22,41 +22,37 @@ const projectData = {
     title: "Real Projects & Installations",
     description: "Explore a selection of completed elevator installations, maintenance projects, and premium solutions delivered across Egypt.",
     
-    videoTitle: "Real Projects In Motion",
-    videoDesc: "Watch real operational footage of our completed elevator installations across Cairo and Giza.",
-    videos: [
+    videoTitle: "Project Gallery",
+    videoDesc: "Browse our completed elevator installations across Cairo and Giza.",
+    gallery: [
       {
         title: "Panoramic Glass Cabin Operation",
-        elevatorType: "Panoramic Hydraulic Lift",
+        type: "Panoramic Hydraulic Lift",
         location: "Giza, Egypt",
         description: "Scenic glass lift cabin in motion showing pyramids horizons.",
-        poster: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=800",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        image: "/images/2026-07-05 06.53.17.jpg",
       },
       {
         title: "High-Speed Traction Machine Tuning",
-        elevatorType: "Electric MRL Elevator",
+        type: "Electric MRL Elevator",
         location: "New Cairo, Egypt",
         description: "Advanced controller cabinet calibration and mechanical tests.",
-        poster: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        image: "/images/2026-07-05 06.53.43.jpg",
       },
       {
         title: "Luxury Residential Villa Lift",
-        elevatorType: "Hydraulic Home Lift",
+        type: "Hydraulic Home Lift",
         location: "Alexandria, Egypt",
         description: "Silent piston cabin moving through open-air residential lobby.",
-        poster: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        image: "/images/2026-07-07 01.41.15.jpg",
       },
       {
         title: "Smart Dumbwaiter Calibration",
-        elevatorType: "Service Dumbwaiter",
+        type: "Service Dumbwaiter",
         location: "Maadi, Cairo",
         description: "Kitchen service dumbwaiter speed tuning and safety tests.",
-        poster: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800",
-        videoSrc: "", // Video coming soon test
-      }
+        image: "/images/2026-07-06 21.36.58.jpg",
+      },
     ],
 
     featuredTitle: "Featured Masterpiece",
@@ -66,7 +62,7 @@ const projectData = {
       type: "Panoramic Hydraulic Lift",
       location: "Giza, Egypt",
       status: "Completed",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+      image: "/images/2026-07-07 00.35.45.jpg",
       desc: "A custom 3-stop circular glass panoramic elevator installed in a private estate overlooking the pyramids, featuring bespoke hand-polished brass finishes, intelligent control panels, and silent hydraulic propulsion.",
     },
 
@@ -78,7 +74,7 @@ const projectData = {
         category: "Commercial",
         type: "MRL Traction Elevators",
         location: "New Cairo, Egypt",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600",
+        image: "/images/2026-07-07 01.42.41.jpg",
         desc: "High-traffic electric traction systems designed for modern retail shopping malls.",
       },
       {
@@ -86,7 +82,7 @@ const projectData = {
         category: "Commercial",
         type: "High-Speed Passenger Lift",
         location: "Alexandria, Egypt",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600",
+        image: "/images/2026-07-07 01.41.41.jpg",
         desc: "Fast, gearless elevator systems built for modern multi-story office towers.",
       },
       {
@@ -94,7 +90,7 @@ const projectData = {
         category: "Residential",
         type: "Premium Home Lift",
         location: "El Shorouk, Egypt",
-        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600",
+        image: "/images/2026-07-05 06.53.17.jpg",
         desc: "Elegant residential villa lift requiring minimal pit depth and headroom.",
       },
       {
@@ -102,7 +98,7 @@ const projectData = {
         category: "Residential",
         type: "Panoramic Screw-Drive Lift",
         location: "Heliopolis, Egypt",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600",
+        image: "/images/2026-07-05 06.53.43.jpg",
         desc: "Sleek glass cabin lift designed to fit inside narrow circular stairwells.",
       },
       {
@@ -110,7 +106,7 @@ const projectData = {
         category: "Private Estates",
         type: "Custom Hydraulic Home Lift",
         location: "New Cairo, Egypt",
-        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=600",
+        image: "/images/2026-07-07 00.35.45.jpg",
         desc: "Custom hydraulic home lift featuring luxury interior cabin panel styling.",
       },
       {
@@ -118,15 +114,39 @@ const projectData = {
         category: "Modernization",
         type: "Retrofit Traction Lift",
         location: "Cairo, Egypt",
-        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600",
+        image: "/images/2026-07-07 01.41.45.jpg",
         desc: "Bespoke elevator integration inside historical heritage shaft structures.",
       },
     ],
     ctaTitle: "Need a similar premium project?",
     ctaDesc: "Contact our engineering team to design and install a custom elevator solution for your property.",
     ctaBtn: "Contact Us",
-    comingSoon: "Video coming soon",
     viewDetails: "View Details",
+    videosTitle: "Real Projects in Motion",
+    videosDesc: "Watch our installations in action — from panoramic glass lifts to high-speed traction systems.",
+    videos: [
+      {
+        title: "Panoramic Glass Lift in Operation",
+        category: "Panoramic Hydraulic Lift",
+        location: "Giza, Egypt",
+        src: "/videos/2026-07-06 21.37.22.mp4",
+        poster: "/images/2026-07-05 06.53.17.jpg",
+      },
+      {
+        title: "High-Speed Traction Elevator Testing",
+        category: "Electric MRL Elevator",
+        location: "New Cairo, Egypt",
+        src: "/videos/2026-07-06 21.37.38.mp4",
+        poster: "/images/2026-07-05 06.53.43.jpg",
+      },
+      {
+        title: "Luxury Residential Lift Installation",
+        category: "Hydraulic Home Lift",
+        location: "Alexandria, Egypt",
+        src: "/videos/2026-07-06 21.38.06.mp4",
+        poster: "/images/2026-07-07 00.35.45.jpg",
+      },
+    ],
   },
   ar: {
     tagline: "مشروعاتنا",
@@ -134,41 +154,37 @@ const projectData = {
     title: "مشروعاتنا وتركيباتنا على أرض الواقع",
     description: "استكشف مجموعة من مشروعات تركيب وصيانة المصاعد التي نفذتها الشركة في مختلف أنحاء مصر.",
     
-    videoTitle: "مشروعاتنا في حركتها",
-    videoDesc: "شاهد لقطات تشغيلية حقيقية لمصاعدنا التي تم تركيبها وتشغيلها في القاهرة والجيزة.",
-    videos: [
+    videoTitle: "معرض المشروعات",
+    videoDesc: "تصفح مجموعة من مشروعاتنا المنفذة في القاهرة والجيزة.",
+    gallery: [
       {
         title: "تشغيل كابينة البانوراما الزجاجية",
-        elevatorType: "مصعد هيدروليكي بانورامي",
+        type: "مصعد هيدروليكي بانورامي",
         location: "الجيزة، مصر",
         description: "مصعد زجاجي دائري مخصص يطل على آفاق معمارية فاخرة.",
-        poster: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=800",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        image: "/images/2026-07-05 06.53.17.jpg",
       },
       {
         title: "ضبط لوحة تحكم مصعد الجر السريع",
-        elevatorType: "مصعد كهربائي بدون غرفة ماكينات",
+        type: "مصعد كهربائي بدون غرفة ماكينات",
         location: "القاهرة الجديدة، مصر",
         description: "تركيب متطور للوحة التحكم الإلكترونية وإعداد المحرك والجر.",
-        poster: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        image: "/images/2026-07-05 06.53.43.jpg",
       },
       {
         title: "مصعد فيلا سكنية فاخرة",
-        elevatorType: "مصعد هيدروليكي منزلي",
+        type: "مصعد هيدروليكي منزلي",
         location: "الإسكندرية، مصر",
         description: "مصعد مكبس هيدروليكي صامت وهادئ مصمم للفيلات وقليلة الارتفاع.",
-        poster: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800",
-        videoSrc: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        image: "/images/2026-07-07 01.41.15.jpg",
       },
       {
         title: "معايرة مصعد طعام ذكي",
-        elevatorType: "مصعد خدمات طعام",
+        type: "مصعد خدمات طعام",
         location: "المعادي، القاهرة",
         description: "ضبط سرعة مصعد خدمة المطابخ واختبارات الأمان والسلامة.",
-        poster: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800",
-        videoSrc: "", // اختبار قريباً
-      }
+        image: "/images/2026-07-06 21.36.58.jpg",
+      },
     ],
 
     featuredTitle: "تحفة هندسية مختارة",
@@ -178,7 +194,7 @@ const projectData = {
       type: "مصعد هيدروليكي بانورامي",
       location: "الجيزة، مصر",
       status: "مكتمل",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+      image: "/images/2026-07-07 00.35.45.jpg",
       desc: "مصعد زجاجي بانورامي دائري مخصص ذو ٣ وقفات تم تركيبه في قصر خاص يطل على الأهرامات، يتميز بتشطيبات نحاسية مصقولة يدوياً، ولوحات تحكم ذكية، ونظام دفع هيدروليكي صامت بالكامل.",
     },
 
@@ -190,7 +206,7 @@ const projectData = {
         category: "تجاري",
         type: "مصاعد جر بدون غرفة ماكينة (MRL)",
         location: "القاهرة الجديدة، مصر",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600",
+        image: "/images/2026-07-07 01.42.41.jpg",
         desc: "أنظمة مصاعد جر كهربائية عالية التردد مصممة لمراكز التسوق الحديثة.",
       },
       {
@@ -198,7 +214,7 @@ const projectData = {
         category: "تجاري",
         type: "مصعد ركاب فائق السرعة",
         location: "الإسكندرية، مصر",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=600",
+        image: "/images/2026-07-07 01.41.41.jpg",
         desc: "أنظمة مصاعد سريعة بدون تروس مصممة للأبراج السكنية والإدارية.",
       },
       {
@@ -206,7 +222,7 @@ const projectData = {
         category: "سكني",
         type: "مصعد فيلا منزلي فاخر",
         location: "الشروق، مصر",
-        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600",
+        image: "/images/2026-07-05 06.53.17.jpg",
         desc: "مصعد فيلا سكني هادئ وأنيق يتطلب مساحة حفرة ورأسية ضئيلة.",
       },
       {
@@ -214,7 +230,7 @@ const projectData = {
         category: "سكني",
         type: "مصعد بانوراما لولبي متطور",
         location: "مصر الجديدة، مصر",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600",
+        image: "/images/2026-07-05 06.53.43.jpg",
         desc: "مصعد زجاجي مدمج بتصميم لولبي يناسب الفراغات المعمارية الضيقة.",
       },
       {
@@ -222,7 +238,7 @@ const projectData = {
         category: "قصور خاصة",
         type: "مصعد منزلي هيدروليكي مخصص",
         location: "نيو كايرو، مصر",
-        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=600",
+        image: "/images/2026-07-07 00.35.45.jpg",
         desc: "مصعد مكبس هيدروليكي مخصص يتميز بكابينة ذات تشطيبات فاخرة.",
       },
       {
@@ -230,15 +246,39 @@ const projectData = {
         category: "تحديث مصاعد",
         type: "تحديث وتركيب مصعد جر",
         location: "القاهرة، مصر",
-        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600",
+        image: "/images/2026-07-07 01.41.45.jpg",
         desc: "تكامل مصعد مخصص وتحديثه داخل الفراغات والأعمدة المعمارية للمباني التراثية والأثرية.",
       },
     ],
     ctaTitle: "هل تحتاج إلى مشروع مصعد مماثل؟",
     ctaDesc: "تواصل مع فريقنا الهندسي لتصميم وتركيب حلول مصاعد مخصصة بالكامل لمنشأتك.",
     ctaBtn: "تواصل معنا",
-    comingSoon: "الفيديو قريباً",
     viewDetails: "عرض التفاصيل",
+    videosTitle: "مشروعاتنا الحقيقية",
+    videosDesc: "شاهد تركيباتنا أثناء العمل — من المصاعد البانورامية الزجاجية إلى أنظمة الجر عالية السرعة.",
+    videos: [
+      {
+        title: "مصعد بانوراما زجاجي أثناء التشغيل",
+        category: "مصعد هيدروليكي بانورامي",
+        location: "الجيزة، مصر",
+        src: "/videos/2026-07-06 21.37.22.mp4",
+        poster: "/images/2026-07-05 06.53.17.jpg",
+      },
+      {
+        title: "اختبار مصعد جر فائق السرعة",
+        category: "مصعد كهربائي MRL",
+        location: "القاهرة الجديدة، مصر",
+        src: "/videos/2026-07-06 21.37.38.mp4",
+        poster: "/images/2026-07-05 06.53.43.jpg",
+      },
+      {
+        title: "تركيب مصعد فيلا سكنية فاخرة",
+        category: "مصعد هيدروليكي منزلي",
+        location: "الإسكندرية، مصر",
+        src: "/videos/2026-07-06 21.38.06.mp4",
+        poster: "/images/2026-07-07 00.35.45.jpg",
+      },
+    ],
   },
 };
 
@@ -265,7 +305,8 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
 
   const [isDark, setIsDark] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [activeVideo, setActiveVideo] = useState<{ videoSrc: string; title: string } | null>(null);
+  const [activeImage, setActiveImage] = useState<{ src: string; title: string } | null>(null);
+  const [activeVideo, setActiveVideo] = useState<{ src: string; title: string; poster?: string } | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -326,7 +367,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setActiveVideo(null);
+        setActiveImage(null);
       }
     };
     window.addEventListener("keydown", handleEsc);
@@ -660,11 +701,11 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
           </div>
         </div>
 
-        {/* 3. MARKETING VIDEOS SHOWCASE (REAL PROJECTS IN MOTION) */}
+        {/* 3. PROJECT GALLERY (REAL PROJECTS) */}
         <div ref={videoSectionRef} className="pt-16 pb-12 relative z-10">
           <div className="pb-8">
             <span className={cn("text-[#ec4e39] text-[10px] md:text-xs font-bold uppercase tracking-widest", isRTL && "font-cairo")}>
-              {isRTL ? "توثيق الفيديو للتركيبات" : "Live Footage"}
+              {isRTL ? "معرض المشروعات" : "Project Gallery"}
             </span>
             <h3 className={cn("text-xl md:text-2xl lg:text-3.5xl font-serif text-[var(--c-text)] font-semibold mt-1", isRTL && "font-cairo")}>
               {content.videoTitle}
@@ -676,78 +717,155 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
 
           {/* Grid layout (3 desktop, 2 tablet, 1 mobile) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full mt-6">
-            {content.videos.map((vid, idx) => {
-              const isVideoSoon = !vid.videoSrc;
+            {content.gallery.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveImage({ src: item.image, title: item.title })}
+                className="relative rounded-[24px] overflow-hidden border text-start flex flex-col justify-end group outline-none aspect-[16/10] w-full cursor-pointer"
+                style={{ borderColor: 'var(--c-border)' }}
+                aria-label={`View ${item.title}`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
+                  loading="lazy"
+                />
+                
+                {/* Gradient mask */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
 
-              return (
-                <div
-                  key={idx}
-                  className="relative rounded-[24px] overflow-hidden border border-[var(--c-border)]/20 shadow-lg text-start flex flex-col justify-end bg-black group outline-none aspect-[16/10]"
+                {/* View icon */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center border-2 border-white/30 bg-black/20 backdrop-blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100 group-focus:opacity-100 z-10"
+                  style={{ borderColor: 'rgba(255,255,255,0.3)' }}
                 >
-                  {/* Background poster/thumbnail */}
-                  <Image
-                    src={vid.poster}
-                    alt={vid.title}
-                    fill
-                    className="object-cover opacity-75 group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
-                    sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
-                    loading="lazy"
-                  />
-                  
-                  {/* Gradient mask */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
-
-                  {/* Top-right "Coming Soon" or "Video Ready" Badge */}
-                  {isVideoSoon && (
-                    <div className={cn("absolute top-4 right-4 bg-red-600/90 text-white text-[9px] uppercase font-bold tracking-widest px-3 py-1 rounded-full z-10", isRTL && "font-cairo")}>
-                      {content.comingSoon}
-                    </div>
-                  )}
-
-                  {/* Play Button - Interactive */}
-                  <button
-                    onClick={() => {
-                      if (!isVideoSoon) {
-                        setActiveVideo({ videoSrc: vid.videoSrc, title: vid.title });
-                      }
-                    }}
-                    disabled={isVideoSoon}
-                    className={cn(
-                      "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center border transition-all duration-300 z-10 focus:ring-2 focus:ring-[#ec4e39] outline-none",
-                      isVideoSoon
-                        ? "bg-white/5 border-white/10 text-white/20 cursor-not-allowed"
-                        : "bg-white/10 hover:bg-[#ec4e39]/20 hover:scale-110 border-white/25 hover:border-[#ec4e39] text-white/70 hover:text-white"
-                    )}
-                    aria-label={isVideoSoon ? `${vid.title} - Coming soon` : `Play video for ${vid.title}`}
-                  >
-                    <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-
-                  {/* Info contents */}
-                  <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end min-h-[140px] pointer-events-none">
-                    <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-white/70 font-bold mb-2">
-                      <span>{vid.location}</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
-                      <span>{vid.elevatorType}</span>
-                    </div>
-
-                    <h4 className={cn("text-sm lg:text-base font-semibold leading-tight font-serif text-white truncate", isRTL && "font-cairo")}>
-                      {vid.title}
-                    </h4>
-
-                    <p className={cn("text-[11px] text-white/50 mt-1 leading-relaxed select-text truncate", isRTL && "font-cairo")}>
-                      {vid.description}
-                    </p>
-                  </div>
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                  </svg>
                 </div>
-              );
-            })}
+
+                {/* Info contents */}
+                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end min-h-[140px] pointer-events-none">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-white/70 font-bold mb-2">
+                    <span>{item.location}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+                    <span>{item.type}</span>
+                  </div>
+
+                  <h4 className={cn("text-sm lg:text-base font-semibold leading-tight font-serif text-white truncate", isRTL && "font-cairo")}>
+                    {item.title}
+                  </h4>
+
+                  <p className={cn("text-[11px] text-white/50 mt-1 leading-relaxed select-text truncate", isRTL && "font-cairo")}>
+                    {item.description}
+                  </p>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* 4. FEATURED PROJECT CARD */}
+        {/* 4. REAL PROJECTS IN MOTION — VIDEO GALLERY */}
+        <div className="pt-16 pb-8 relative z-10">
+          <div className="pb-8">
+            <span className={cn("text-[#ec4e39] text-[10px] md:text-xs font-bold uppercase tracking-widest", isRTL && "font-cairo")}>
+              {isRTL ? "مشروعاتنا الحقيقية" : "Real Projects"}
+            </span>
+            <h3 className={cn("text-xl md:text-2xl lg:text-3.5xl font-serif text-[var(--c-text)] font-semibold mt-1", isRTL && "font-cairo")}>
+              {content.videosTitle}
+            </h3>
+            <p className={cn("text-sm text-[var(--c-text)]/60 max-w-xl mt-2", isRTL && "font-cairo")}>
+              {content.videosDesc}
+            </p>
+          </div>
+
+          {/* Desktop: 3-col grid | Mobile: horizontal scroll */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 w-full">
+            {content.videos.map((video, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveVideo({ src: video.src, title: video.title, poster: video.poster })}
+                className="relative rounded-[24px] overflow-hidden border text-start flex flex-col justify-end group outline-none aspect-[4/3] w-full cursor-pointer"
+                style={{ borderColor: 'var(--c-border)' }}
+                aria-label={`Play video: ${video.title}`}
+              >
+                {/* Poster image */}
+                <Image
+                  src={video.poster}
+                  alt={video.title}
+                  fill
+                  className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
+                  loading="lazy"
+                />
+
+                {/* Gradient mask */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
+
+                {/* Play button */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full flex items-center justify-center border-2 border-white/60 bg-black/30 backdrop-blur-sm transition-all duration-300 group-hover:bg-[#ec4e39] group-hover:border-[#ec4e39] group-hover:scale-110 z-10">
+                  <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+
+                {/* Info */}
+                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end min-h-[120px] pointer-events-none">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-white/70 font-bold mb-2">
+                    <span>{video.location}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+                    <span>{video.category}</span>
+                  </div>
+                  <h4 className={cn("text-sm lg:text-base font-semibold leading-tight font-serif text-white truncate", isRTL && "font-cairo")}>
+                    {video.title}
+                  </h4>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile: horizontal scroll */}
+          <div className="md:hidden overflow-x-auto pb-4 -mx-4 px-4 scrollbar-none" ref={mobileScrollRef}>
+            <div className="flex gap-4 w-max">
+              {content.videos.map((video, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveVideo({ src: video.src, title: video.title, poster: video.poster })}
+                  className="relative rounded-[20px] overflow-hidden border flex-shrink-0 text-start flex flex-col justify-end group outline-none w-[280px] aspect-[4/3] cursor-pointer"
+                  style={{ borderColor: 'var(--c-border)' }}
+                  aria-label={`Play video: ${video.title}`}
+                >
+                  <Image
+                    src={video.poster}
+                    alt={video.title}
+                    fill
+                    className="object-cover"
+                    sizes="280px"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center border-2 border-white/60 bg-black/30 backdrop-blur-sm z-10">
+                    <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end min-h-[100px] pointer-events-none">
+                    <div className="flex items-center gap-2 text-[9px] uppercase tracking-wider text-white/70 font-bold mb-1">
+                      <span>{video.location}</span>
+                    </div>
+                    <h4 className={cn("text-xs font-semibold leading-tight font-serif text-white truncate", isRTL && "font-cairo")}>
+                      {video.title}
+                    </h4>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* 5. FEATURED PROJECT CARD */}
         <div id="featured-masterpiece" ref={featuredRef} className="pt-16 border-t border-[var(--c-border)]/20 mt-10">
           <div className="pb-8">
             <span className={cn("text-[#ec4e39] text-[10px] md:text-xs font-bold uppercase tracking-widest", isRTL && "font-cairo")}>
@@ -864,20 +982,21 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
 
       </div>
 
-      {/* 6. INTERACTIVE VIDEO PLAYBACK MODAL */}
+      {/* 7. VIDEO PLAYBACK MODAL */}
       {activeVideo && (
         <div
-          className="fixed inset-0 bg-black/90 backdrop-blur-md z-[9999] flex items-center justify-center p-4 transition-opacity duration-300"
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-4 transition-opacity duration-300"
           role="dialog"
           aria-modal="true"
           aria-label={activeVideo.title}
+          onClick={() => setActiveVideo(null)}
         >
-          <div className="relative w-full max-w-4xl aspect-video bg-[#0b0a0a] rounded-[24px] border border-white/10 overflow-hidden shadow-2xl">
+          <div className="relative w-full max-w-5xl" onClick={e => e.stopPropagation()}>
             {/* Close Button */}
             <button
               onClick={() => setActiveVideo(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-[#ec4e39] text-white flex items-center justify-center border border-white/10 hover:border-transparent transition-all focus:ring-2 focus:ring-[#ec4e39] outline-none"
-              aria-label="Close video playback"
+              className="absolute -top-12 right-0 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-[#ec4e39] text-white flex items-center justify-center border border-white/10 hover:border-transparent transition-all focus:ring-2 focus:ring-[#ec4e39] outline-none"
+              aria-label="Close video"
             >
               <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -885,12 +1004,63 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
             </button>
 
             {/* Video Player */}
-            <video
-              src={activeVideo.videoSrc}
-              controls
-              autoPlay
-              className="w-full h-full object-contain"
-            />
+            <div className="relative w-full aspect-video bg-black rounded-[24px] overflow-hidden shadow-2xl border border-white/10">
+              <video
+                src={activeVideo.src}
+                controls
+                muted
+                preload="metadata"
+                playsInline
+                className="w-full h-full object-contain"
+                poster={activeVideo.poster}
+              />
+            </div>
+
+            {/* Title */}
+            <div className="mt-4 text-white/80 text-sm font-medium tracking-wide text-center px-6">
+              {activeVideo.title}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 8. INTERACTIVE IMAGE LIGHTBOX MODAL */}
+      {activeImage && (
+        <div
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-4 transition-opacity duration-300"
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeImage.title}
+          onClick={() => setActiveImage(null)}
+        >
+          <div className="relative w-full max-w-5xl max-h-[90vh] flex items-center justify-center" onClick={e => e.stopPropagation()}>
+            {/* Close Button */}
+            <button
+              onClick={() => setActiveImage(null)}
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-[#ec4e39] text-white flex items-center justify-center border border-white/10 hover:border-transparent transition-all focus:ring-2 focus:ring-[#ec4e39] outline-none"
+              aria-label="Close"
+            >
+              <svg className="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Lightbox Image */}
+            <div className="relative w-full h-full max-h-[85vh]">
+              <Image
+                src={activeImage.src}
+                alt={activeImage.title}
+                fill
+                className="object-contain"
+                sizes="90vw"
+                priority
+              />
+            </div>
+
+            {/* Title */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium tracking-wide text-center px-6 py-2 rounded-full bg-black/50 backdrop-blur-sm">
+              {activeImage.title}
+            </div>
           </div>
         </div>
       )}

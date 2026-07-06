@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Food & Service Elevators | Masr Al Arabya Elevators",
     description: "Compact food and service elevators for restaurants, hotels, kitchens, and hospitality projects across Egypt.",
     url: "https://misr-elevators.com/services/food-elevators",
-    images: [{ url: "https://misr-elevators.com/images/hero-elevator.png", width: 1200, height: 630, alt: "Food Service Elevator by Masr Al Arabya Elevators" }],
+    images: [{ url: "https://misr-elevators.com/images/logo.jpg", width: 1200, height: 630, alt: "Food Service Elevator by Masr Al Arabya Elevators" }],
   },
 };
 

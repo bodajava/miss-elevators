@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface FooterProps {
@@ -118,8 +119,14 @@ export default function Footer({ lang = "en" }: FooterProps) {
           <div className="lg:col-span-4 flex flex-col gap-5">
             <div className="flex items-center gap-3">
               {/* Logo Symbol */}
-              <div className="w-10 h-10 rounded-[12px] bg-[#ec4e39] flex items-center justify-center font-bold text-lg text-[#FAF0ED] shadow-md shrink-0">
-                {isRTL ? "م" : "M"}
+              <div className="w-10 h-10 rounded-[12px] overflow-hidden shrink-0 relative bg-[#0b0a0a]">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Masr Al Arabya Elevators"
+                  fill
+                  className="object-cover"
+                  sizes="40px"
+                />
               </div>
               <div>
                 <span className={cn("text-lg font-bold tracking-wider block", isRTL && "font-cairo")}>

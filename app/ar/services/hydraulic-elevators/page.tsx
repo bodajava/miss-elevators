@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "مصاعد هيدروليك | شركة مصر العربية للمصاعد",
     description: "مصاعد هيدروليك للفيلات والمباني منخفضة الارتفاع في مصر.",
     url: "https://misr-elevators.com/ar/services/hydraulic-elevators",
-    images: [{ url: "https://misr-elevators.com/images/hero-elevator.png", width: 1200, height: 630, alt: "مصعد هيدروليك من شركة مصر العربية للمصاعد" }],
+    images: [{ url: "https://misr-elevators.com/images/logo.jpg", width: 1200, height: 630, alt: "مصعد هيدروليك من شركة مصر العربية للمصاعد" }],
   },
 };
 

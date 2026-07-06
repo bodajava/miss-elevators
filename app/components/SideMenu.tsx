@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface SideMenuProps {
@@ -251,6 +252,18 @@ export default function SideMenu({ lang = "en" }: SideMenuProps) {
         </div>
 
         <nav ref={navRef} className="nav" id="nav">
+          {/* Logo in menu */}
+          <div className="absolute top-8 left-8 rtl:left-auto rtl:right-8 z-10">
+            <div className="w-12 h-12 rounded-[14px] overflow-hidden relative bg-[#0b0a0a] border border-white/10 shadow-lg">
+              <Image
+                src="/images/logo.jpg"
+                alt="Masr Al Arabya Elevators"
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
+            </div>
+          </div>
           <div className="nav__body" id="navLinks">
             {items.map((item) => (
               <div key={item.label} className="nav__link-wrap">
