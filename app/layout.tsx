@@ -16,8 +16,83 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "Masr Al Arabya Elevators | Premium Elevator Solutions in Egypt",
-  description: "Elevating standards since 1979. We design, install, and maintain premium villa elevators, panoramic elevators, and commercial lifts across Egypt & Giza.",
+  title: {
+    default: "Masr Al Arabya Elevators | Premium Elevator Company in Egypt Since 1979",
+    template: "%s | Masr Al Arabya Elevators",
+  },
+  description: "Egypt's premier elevator company since 1979. We design, install, and maintain luxury villa elevators, panoramic glass lifts, hydraulic elevators, and commercial passenger elevators across Cairo, Giza & Egypt. EN 81 & CE certified.",
+  keywords: [
+    "elevator company Egypt",
+    "luxury elevators Egypt",
+    "panoramic elevators Egypt",
+    "hydraulic elevators Egypt",
+    "villa elevators Egypt",
+    "commercial elevators Egypt",
+    "elevator installation Cairo",
+    "elevator maintenance Giza",
+    "Masr Al Arabya Elevators",
+    "مصاعد مصر",
+    "مصاعد بانوراما",
+    "مصاعد هيدروليك",
+    "مصاعد كهربائية",
+    "شركة مصاعد مصر",
+    "مصاعد فلل",
+  ],
+  authors: [{ name: "Masr Al Arabya Elevators" }],
+  creator: "Masr Al Arabya Elevators",
+  publisher: "Masr Al Arabya Elevators",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
+  alternates: {
+    canonical: "https://misr-elevators.com",
+    languages: {
+      "en-US": "https://misr-elevators.com",
+      "ar-EG": "https://misr-elevators.com/ar",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Masr Al Arabya Elevators",
+    title: "Masr Al Arabya Elevators | Luxury Elevators & Lifts in Egypt",
+    description: "Egypt's leading elevator company since 1979. German & Italian engineered panoramic glass lifts, hydraulic home elevators, and commercial passenger elevators. EN 81 certified safety.",
+    url: "https://misr-elevators.com",
+    images: [
+      {
+        url: "https://misr-elevators.com/images/hero-elevator.png",
+        width: 1200,
+        height: 630,
+        alt: "Masr Al Arabya Elevators - Premium Elevator Installation Egypt",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Masr Al Arabya Elevators | Luxury Lifts in Egypt",
+    description: "Egypt's leading elevator company since 1979. Premium panoramic, hydraulic & passenger elevators. EN 81 certified.",
+    images: ["https://misr-elevators.com/images/hero-elevator.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  verification: {
+    google: "YOUR_GOOGLE_VERIFICATION_CODE",
+  },
+  category: "engineering",
 };
 
 export default function RootLayout({

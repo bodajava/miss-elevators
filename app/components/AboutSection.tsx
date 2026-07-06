@@ -245,7 +245,7 @@ export default function AboutSection({ lang = "en" }: AboutSectionProps) {
 
     // Clean up all ScrollTriggers on unmount
     return () => {
-      ctx.revert();
+      try { ctx.revert(); } catch (_) {}
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, [isRTL]);

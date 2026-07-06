@@ -434,7 +434,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
     }, sectionRef);
 
     return () => {
-      ctx.revert();
+      try { ctx.revert(); } catch (_) {}
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, [isRTL]);
@@ -468,9 +468,11 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
       `}} />
 
       {/* Background wireframes */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none z-0">
-        <div className="absolute top-0 bottom-0 left-8 md:left-16 w-[1px] bg-gradient-to-b from-black via-black/40 to-transparent dark:from-white" />
-        <div className="absolute top-0 bottom-0 right-8 md:right-16 w-[1px] bg-gradient-to-b from-black via-black/40 to-transparent dark:from-white" />
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-0">
+        <div className="absolute top-0 bottom-0 left-8 md:left-16 w-[1px] bg-gradient-to-b from-[#c5a880]/20 via-[#c5a880]/5 to-transparent" />
+        <div className="absolute top-0 bottom-0 right-8 md:right-16 w-[1px] bg-gradient-to-b from-[#c5a880]/20 via-[#c5a880]/5 to-transparent" />
+        <div className="absolute top-1/3 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-[#c5a880]/8 to-transparent" />
+        <div className="absolute top-2/3 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-[#c5a880]/8 to-transparent" />
       </div>
 
       <div className="max-w-[1400px] mx-auto relative z-10">
@@ -609,7 +611,8 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
               {filteredGridItems.map((proj, idx) => (
                 <div
                   key={idx}
-                  className="w-[78vw] shrink-0 snap-center rounded-[24px] overflow-hidden border border-[var(--c-border)]/20 bg-white dark:bg-[#0b0a0a] shadow-md flex flex-col h-[300px] transition-colors"
+                  className="w-[78vw] shrink-0 snap-center rounded-[24px] overflow-hidden flex flex-col h-[300px] transition-colors"
+                  style={{ border: '1px solid var(--c-border)', backgroundColor: 'var(--c-card-bg)', boxShadow: 'var(--shadow-md)' }}
                 >
                   {/* Image container */}
                   <div className="relative w-full h-[170px] overflow-hidden">
@@ -755,7 +758,8 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
             </h3>
           </div>
 
-          <div className="relative w-full rounded-[24px] overflow-hidden border border-[var(--c-border)]/25 bg-white dark:bg-[#0b0a0a] shadow-xl flex flex-col lg:flex-row items-stretch min-h-[460px]">
+          <div className="relative w-full rounded-[24px] lg:rounded-[32px] overflow-hidden flex flex-col lg:flex-row items-stretch min-h-[460px]"
+            style={{ border: '1px solid var(--c-border)', backgroundColor: 'var(--c-surface)', boxShadow: 'var(--shadow-xl)' }}>
             {/* Image Block */}
             <div className="w-full lg:w-[55%] relative min-h-[300px] lg:min-h-auto">
               <Image
@@ -817,7 +821,8 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
         {/* 5. BOTTOM CTA BANNER */}
         <div
           ref={ctaRef}
-          className="mt-24 p-8 lg:p-12 rounded-[24px] border border-[var(--c-border)]/35 bg-white dark:bg-[#0c0c0c] shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group z-10"
+          className="mt-24 p-8 lg:p-12 rounded-[24px] lg:rounded-[32px] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group z-10"
+          style={{ border: '1px solid var(--c-border)', backgroundColor: 'var(--c-surface)', boxShadow: 'var(--shadow-lg)' }}
         >
           <div className="flex flex-col gap-1 text-center md:text-start relative z-10">
             <span className={cn("text-[9px] uppercase tracking-widest text-[#ec4e39] font-bold", isRTL && "font-cairo")}>

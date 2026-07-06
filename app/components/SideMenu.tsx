@@ -184,7 +184,9 @@ export default function SideMenu({ lang = "en" }: SideMenuProps) {
       timelineRef.current = tl;
     }, headerRef);
 
-    return () => ctx.revert();
+    return () => {
+      try { ctx.revert(); } catch (_) {}
+    };
   }, [isRTL]);
 
   useEffect(() => {

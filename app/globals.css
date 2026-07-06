@@ -128,13 +128,49 @@
   --c-text: #1a1411;
   --c-card-bg: rgba(26, 20, 17, 0.05);
   --c-border: rgba(26, 20, 17, 0.15);
+  --c-surface: #FFF8F5;
+  --c-surface-hover: rgba(26, 20, 17, 0.08);
+  --c-accent: #ec4e39;
+  --c-accent-hover: #d43d2a;
+  --c-gold: #c5a880;
+  --c-gold-light: #d4af37;
+  --c-glow: rgba(197, 168, 128, 0.15);
+  --c-overlay: rgba(26, 20, 17, 0.6);
+  --c-text-secondary: rgba(26, 20, 17, 0.65);
+  --c-text-tertiary: rgba(26, 20, 17, 0.4);
+  --c-success: #22c55e;
+  --c-error: #ef4444;
+  --shadow-sm: 0 1px 3px rgba(26, 20, 17, 0.06);
+  --shadow-md: 0 4px 20px rgba(26, 20, 17, 0.08);
+  --shadow-lg: 0 10px 40px rgba(26, 20, 17, 0.1);
+  --shadow-xl: 0 20px 60px rgba(26, 20, 17, 0.12);
+  --gradient-gold: linear-gradient(135deg, #c5a880 0%, #d4af37 50%, #c5a880 100%);
+  --gradient-warm: linear-gradient(180deg, rgba(197, 168, 128, 0.08) 0%, transparent 100%);
 }
 
 .dark {
-  --c-bg: #000000;
-  --c-text: #FAF0ED;
-  --c-card-bg: rgba(250, 240, 237, 0.05);
-  --c-border: rgba(250, 240, 237, 0.15);
+  --c-bg: #0f1115;
+  --c-text: #EDE7E3;
+  --c-card-bg: rgba(255, 255, 255, 0.04);
+  --c-border: rgba(255, 255, 255, 0.08);
+  --c-surface: #171a20;
+  --c-surface-hover: rgba(255, 255, 255, 0.06);
+  --c-accent: #ec4e39;
+  --c-accent-hover: #f05a45;
+  --c-gold: #c5a880;
+  --c-gold-light: #d4af37;
+  --c-glow: rgba(197, 168, 128, 0.1);
+  --c-overlay: rgba(0, 0, 0, 0.7);
+  --c-text-secondary: rgba(237, 231, 227, 0.55);
+  --c-text-tertiary: rgba(237, 231, 227, 0.3);
+  --c-success: #22c55e;
+  --c-error: #ef4444;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --gradient-gold: linear-gradient(135deg, #c5a880 0%, #d4af37 50%, #c5a880 100%);
+  --gradient-warm: linear-gradient(180deg, rgba(197, 168, 128, 0.06) 0%, transparent 100%);
 }
 
 @layer base {
@@ -158,17 +194,17 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0a0a;
+  background: var(--c-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #252424;
-  border-radius: 4px;
+  background: var(--c-border);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #353333;
+  background: var(--c-gold);
 }
 
 /* Premium 3D flip menu styles */
@@ -183,17 +219,20 @@
 
 /* Glassmorphism helpers */
 .glass-panel {
-  background: rgba(20, 19, 19, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(197, 168, 128, 0.1);
+  background: var(--c-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--c-border);
+  transition: all 0.4s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .glass-panel-hover {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.76, 0, 0.24, 1);
 }
 .glass-panel-hover:hover {
-  border-color: rgba(212, 175, 55, 0.3);
-  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.1);
+  border-color: var(--c-gold);
+  box-shadow: var(--shadow-lg), 0 0 30px -10px var(--c-glow);
+  background: var(--c-surface-hover);
 }
 
 /* Hero text reveal animation helper */

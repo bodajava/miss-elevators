@@ -214,7 +214,7 @@ export default function AureliaHero({ lang = "en" }: AureliaHeroProps) {
     }, containerRef);
 
     return () => {
-      ctx.revert();
+      try { ctx.revert(); } catch (_) {}
     };
   }, []);
 

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Magnetic from "./Magnetic";
 
@@ -185,10 +186,27 @@ export default function ServicesSection({ lang = "en" }: ServicesSectionProps) {
     }, sectionRef);
 
     return () => {
-      ctx.revert();
+      try { ctx.revert(); } catch (_) {}
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, [isRTL]);
+
+    // Service page routes
+  const serviceRoutes: Record<string, Record<string, string>> = {
+    "Electric Elevators": { en: "/services/electric-elevators", ar: "/ar/services/electric-elevators" },
+    "Hydraulic Elevators": { en: "/services/hydraulic-elevators", ar: "/ar/services/hydraulic-elevators" },
+    "Panoramic Elevators": { en: "/services/panoramic-elevators", ar: "/ar/services/panoramic-elevators" },
+    "Food Elevators": { en: "/services/food-elevators", ar: "/ar/services/food-elevators" },
+  };
+
+  const getServiceLink = (title: string): string | null => {
+    const routes = serviceRoutes[title];
+    return routes ? routes[lang] : null;
+  };
+
+  const shouldNavigate = (title: string): boolean => {
+    return title in serviceRoutes;
+  };
 
   // Helper to render customized architectural vector icons matching elevator guide theme
   const renderIcon = (index: number) => {
@@ -251,48 +269,52 @@ export default function ServicesSection({ lang = "en" }: ServicesSectionProps) {
     <section
       ref={sectionRef}
       id="services"
-      className="relative w-full py-24 md:py-36 lg:py-44 px-4 md:px-8 lg:px-16 bg-[#0b0a0a] text-[#FAF0ED] overflow-hidden"
+      className="relative w-full py-24 md:py-36 lg:py-44 px-4 md:px-8 lg:px-16 overflow-hidden"
+      style={{ backgroundColor: 'var(--c-bg)', color: 'var(--c-text)' }}
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background architectural structural wire decoration */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none z-0">
-        <div className="absolute top-0 bottom-0 left-8 md:left-16 w-[1px] bg-gradient-to-b from-white/20 via-white/5 to-transparent" />
-        <div className="absolute top-0 bottom-0 right-8 md:right-16 w-[1px] bg-gradient-to-b from-white/20 via-white/5 to-transparent" />
-        <div className="absolute top-1/3 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        <div className="absolute top-2/3 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none z-0">
+        <div className="absolute top-0 bottom-0 left-8 md:left-16 w-[1px] bg-gradient-to-b from-[#c5a880]/30 via-[#c5a880]/10 to-transparent" />
+        <div className="absolute top-0 bottom-0 right-8 md:right-16 w-[1px] bg-gradient-to-b from-[#c5a880]/30 via-[#c5a880]/10 to-transparent" />
+        <div className="absolute top-1/3 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#c5a880]/15 to-transparent" />
+        <div className="absolute top-2/3 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#c5a880]/15 to-transparent" />
       </div>
 
       <div className="max-w-[1400px] mx-auto relative z-10">
 
         {/* HEADER SECTION */}
-        <div className="pb-12 border-b border-white/10 relative z-10">
+        <div className="pb-12 border-b relative z-10" style={{ borderColor: 'var(--c-border)' }}>
           <span
             ref={taglineRef}
             className={cn(
-              "inline-block text-[#ec4e39] uppercase tracking-[0.25em] text-xs md:text-sm font-semibold select-none",
+              "inline-block uppercase tracking-[0.25em] text-xs md:text-sm font-semibold select-none",
+              "text-[#ec4e39]",
               isRTL && "font-cairo"
             )}
           >
             {content.tagline}
           </span>
-          <span className={cn("text-white/40 text-[10px] md:text-xs tracking-wider mt-1.5 block select-none", isRTL && "font-cairo")}>
+          <span className={cn("text-[10px] md:text-xs tracking-wider mt-1.5 block select-none", isRTL && "font-cairo")} style={{ color: 'var(--c-text-tertiary)' }}>
             {content.sectionNum}
           </span>
           <h2
             ref={titleRef}
             className={cn(
-              "font-serif text-[clamp(2.2rem,4.5vw,4.2rem)] leading-[1.05] text-white max-w-4xl tracking-tight mt-6",
+              "font-serif text-[clamp(2.2rem,4.5vw,4.2rem)] leading-[1.05] max-w-4xl tracking-tight mt-6",
               isRTL && "font-cairo font-bold leading-tight"
             )}
+            style={{ color: 'var(--c-text)' }}
           >
             {splitTextWords(content.title, isRTL)}
           </h2>
           <p
             ref={descriptionRef}
             className={cn(
-              "text-white/60 text-sm md:text-base lg:text-lg max-w-2xl mt-6 leading-relaxed select-text",
+              "text-sm md:text-base lg:text-lg max-w-2xl mt-6 leading-relaxed select-text",
               isRTL && "font-cairo"
             )}
+            style={{ color: 'var(--c-text-secondary)' }}
           >
             {content.description}
           </p>
@@ -303,10 +325,11 @@ export default function ServicesSection({ lang = "en" }: ServicesSectionProps) {
 
           {/* LEFT: FEATURED SERVICE CARD */}
           <div className="lg:col-span-5 flex flex-col h-full">
-            <div
-              ref={featuredCardRef}
-              className="relative w-full flex-1 min-h-[480px] lg:min-h-full rounded-[24px] lg:rounded-[32px] overflow-hidden border border-white/10 shadow-2xl flex flex-col justify-end p-8 lg:p-10 group"
-            >
+              <div
+                ref={featuredCardRef}
+                className="relative w-full flex-1 min-h-[480px] lg:min-h-full rounded-[24px] lg:rounded-[32px] overflow-hidden flex flex-col justify-end p-8 lg:p-10 group"
+                style={{ border: '1px solid var(--c-border)', boxShadow: 'var(--shadow-lg)' }}
+              >
               {/* Featured service card image background */}
               <Image
                 src="/images/2026-07-05 07.13.17.jpg"
@@ -357,58 +380,103 @@ export default function ServicesSection({ lang = "en" }: ServicesSectionProps) {
 
           {/* RIGHT: SUPPORTING SERVICES GRID */}
           <div style={{ display: "grid" }} className="lg:col-span-7 grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {content.services.map((ser, idx) => (
-              <div
-                key={idx}
-                className="service-card glass-panel p-6 lg:p-8 rounded-[20px] lg:rounded-[24px] border border-white/10 flex flex-col justify-between min-h-[220px] hover:border-[#ec4e39]/30 hover:bg-white/[0.03] transition-all duration-300 hover:-translate-y-1.5 group relative overflow-hidden cursor-pointer"
-              >
-                {/* Thin lines acting as guides on card edges */}
-                <div className="absolute top-0 left-0 w-8 h-[1px] bg-gradient-to-r from-[#ec4e39] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-0 left-0 w-[1px] h-8 bg-gradient-to-b from-[#ec4e39] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {content.services.map((ser, idx) => {
+              const link = getServiceLink(ser.title);
+              const cardContent = (
+                <div
+                  className={cn(
+                    "service-card glass-panel p-6 lg:p-8 rounded-[20px] lg:rounded-[24px] flex flex-col justify-between min-h-[220px] transition-all duration-500 group relative overflow-hidden cursor-pointer",
+                    "hover:-translate-y-1.5"
+                  )}
+                  style={{
+                    border: '1px solid var(--c-border)',
+                    transition: 'all 0.4s cubic-bezier(0.76, 0, 0.24, 1)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--c-accent)';
+                    e.currentTarget.style.backgroundColor = 'var(--c-surface-hover)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--c-border)';
+                    e.currentTarget.style.backgroundColor = '';
+                    e.currentTarget.style.boxShadow = '';
+                  }}
+                >
+                  {/* Thin lines acting as guides on card edges */}
+                  <div className="absolute top-0 left-0 w-8 h-[1px] bg-gradient-to-r from-[#ec4e39] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-0 left-0 w-[1px] h-8 bg-gradient-to-b from-[#ec4e39] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="w-full">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono tracking-widest text-white/30 group-hover:text-[#ec4e39] transition-colors duration-300">
-                      {ser.num}
-                    </span>
-                    <div className="transition-transform duration-300 group-hover:scale-105">
-                      {renderIcon(idx)}
+                  <div className="w-full">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono tracking-widest transition-colors duration-300" style={{ color: 'var(--c-text-tertiary)' }}>
+                        {ser.num}
+                      </span>
+                      <div className="transition-transform duration-300 group-hover:scale-105">
+                        {renderIcon(idx)}
+                      </div>
+                    </div>
+
+                    <h3 className={cn(
+                      "text-lg lg:text-xl font-medium mt-6 transition-colors duration-300",
+                      isRTL ? "font-cairo" : "font-sans"
+                    )}>
+                      {ser.title}
+                    </h3>
+                    <p className={cn(
+                      "text-xs lg:text-sm leading-relaxed mt-2.5 transition-colors duration-300",
+                      isRTL ? "font-cairo" : "font-sans"
+                    )} style={{ color: 'var(--c-text-secondary)' }}>
+                      {ser.desc}
+                    </p>
+                  </div>
+
+                  <div className="w-full flex items-center justify-end pt-4">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300"
+                      style={{ border: '1px solid var(--c-border)' }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = '#ec4e39';
+                        e.currentTarget.style.backgroundColor = '#ec4e39';
+                        e.currentTarget.style.color = 'white';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = 'var(--c-border)';
+                        e.currentTarget.style.backgroundColor = '';
+                        e.currentTarget.style.color = '';
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2.5"
+                        stroke="currentColor"
+                        className={cn(
+                          "w-3.5 h-3.5 transform transition-transform duration-300",
+                          isRTL ? "group-hover:-translate-x-1 rotate-180" : "group-hover:translate-x-1"
+                        )}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
                     </div>
                   </div>
-
-                  <h3 className={cn(
-                    "text-lg lg:text-xl font-medium text-white mt-6 transition-colors duration-300 group-hover:text-white",
-                    isRTL ? "font-cairo" : "font-sans"
-                  )}>
-                    {ser.title}
-                  </h3>
-                  <p className={cn(
-                    "text-xs lg:text-sm text-white/50 leading-relaxed mt-2.5 transition-colors duration-300 group-hover:text-white/70",
-                    isRTL ? "font-cairo" : "font-sans"
-                  )}>
-                    {ser.desc}
-                  </p>
                 </div>
+              );
 
-                <div className="w-full flex items-center justify-end pt-4">
-                  <div className="flex items-center justify-center w-7 h-7 rounded-full border border-white/10 group-hover:border-[#ec4e39] group-hover:bg-[#ec4e39] group-hover:text-white transition-all duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="2.5"
-                      stroke="currentColor"
-                      className={cn(
-                        "w-3.5 h-3.5 transform transition-transform duration-300",
-                        isRTL ? "group-hover:-translate-x-1 rotate-180" : "group-hover:translate-x-1"
-                      )}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            ))}
+              if (link) {
+                return (
+                  <Link key={idx} href={link} className="block">
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <a key={idx} href="#contact" className="block">
+                  {cardContent}
+                </a>
+              );
+            })}
           </div>
 
         </div>
@@ -416,13 +484,14 @@ export default function ServicesSection({ lang = "en" }: ServicesSectionProps) {
         {/* CTA BANNER ROW */}
         <div
           ref={ctaBannerRef}
-          className="mt-20 py-8 px-6 md:px-12 rounded-[24px] border border-white/10 bg-white/[0.01] flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10"
+          className="mt-20 py-10 px-6 md:px-14 rounded-[28px] flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10"
+          style={{ border: '1px solid var(--c-border)', background: 'var(--gradient-warm)' }}
         >
           <div className="flex flex-col gap-1 text-center sm:text-start">
-            <span className={cn("text-[9px] uppercase tracking-widest text-[#ec4e39] font-bold", isRTL && "font-cairo")}>
+            <span className={cn("text-[9px] uppercase tracking-widest font-bold", isRTL && "font-cairo")} style={{ color: '#ec4e39' }}>
               {content.ctaTag}
             </span>
-            <h3 className={cn("text-lg lg:text-xl font-medium text-white", isRTL && "font-cairo")}>
+            <h3 className={cn("text-lg lg:text-xl font-medium", isRTL && "font-cairo")} style={{ color: 'var(--c-text)' }}>
               {content.ctaText}
             </h3>
           </div>
@@ -432,9 +501,22 @@ export default function ServicesSection({ lang = "en" }: ServicesSectionProps) {
               <a
                 href="#contact"
                 className={cn(
-                  "inline-flex items-center gap-2 bg-[#ec4e39] hover:bg-[#FAF0ED] text-[#FAF0ED] hover:text-[#0b0a0a] px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-xl shadow-black/20 hover:scale-105",
+                  "inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105",
                   isRTL && "font-cairo"
                 )}
+                style={{
+                  backgroundColor: '#ec4e39',
+                  color: '#FAF0ED',
+                  boxShadow: '0 8px 30px rgba(236, 78, 57, 0.3)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FAF0ED';
+                  e.currentTarget.style.color = '#0b0a0a';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#ec4e39';
+                  e.currentTarget.style.color = '#FAF0ED';
+                }}
               >
                 <span>{content.ctaButton}</span>
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">

@@ -10,8 +10,26 @@ import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "مصر العربية للمصاعد | شركة مصاعد في الجيزة ومصر",
-  description: "شركة مصاعد رائدة في مصر والجيزة تأسست عام 1979. متخصصون في تركيب وصيانة مصاعد الفلل المنزلية بدون حفر ومصاعد البانوراما الزجاجية بأعلى معايير الأمان.",
+  title: {
+    default: "مصر العربية للمصاعد | شركة مصاعد فاخرة في مصر منذ ١٩٧٩",
+    template: "%s | مصر العربية للمصاعد",
+  },
+  description: "شركة مصر العربية للمصاعد — خبراء تركيب وتوريد وصيانة المصاعد الفاخرة في مصر منذ ١٩٧٩. مصاعد فلل منزلية، مصاعد بانوراما زجاجية، مصاعد هيدروليك، مصاعد كهربائية تجارية. معتمدة EN 81 وCE.",
+  keywords: [
+    "مصاعد مصر",
+    "مصاعد بانوراما",
+    "مصاعد هيدروليك",
+    "مصاعد كهربائية",
+    "شركة مصاعد مصر",
+    "مصاعد فلل",
+    "مصاعد منزلية",
+    "تركيب مصاعد",
+    "صيانة مصاعد",
+    "مصاعد القاهرة",
+    "مصاعد الجيزة",
+    "elevator company Egypt",
+    "luxury elevators Egypt",
+  ],
   alternates: {
     canonical: "https://misr-elevators.com/ar",
     languages: {
@@ -20,8 +38,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "شركة مصر العربية للمصاعد | مصاعد فلل وبانوراما في مصر",
-    description: "شركة مصاعد في الجيزة ومصر. تركيب وصيانة مصاعد الفلل والمصاعد الزجاجية البانورامية الفاخرة بمكونات ألمانية وإيطالية معتمدة.",
+    title: "مصر العربية للمصاعد | مصاعد فلل وبانوراما وهيدروليك في مصر",
+    description: "شركة مصاعد رائدة في مصر والجيزة منذ ١٩٧٩. تركيب وصيانة مصاعد الفلل والمصاعد الزجاجية البانورامية والمصاعد الهيدروليكية والكهربائية بمكونات ألمانية وإيطالية معتمدة.",
     url: "https://misr-elevators.com/ar",
     siteName: "مصر العربية للمصاعد",
     images: [
@@ -37,9 +55,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "شركة مصر العربية للمصاعد | مصاعد فلل وبانوراما في مصر",
-    description: "شركة مصاعد في الجيزة ومصر. تركيب وصيانة مصاعد الفلل والمصاعد الزجاجية البانورامية الفاخرة بمكونات ألمانية وإيطالية معتمدة.",
+    title: "مصر العربية للمصاعد | مصاعد فلل وبانوراما في مصر",
+    description: "شركة مصاعد رائدة في مصر منذ ١٩٧٩. مصاعد فلل وبانوراما ومصاعد هيدروليك بمكونات ألمانية وإيطالية معتمدة.",
     images: ["https://misr-elevators.com/images/hero-elevator.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
   },
 };
 
@@ -51,12 +78,15 @@ export default function HomeAr() {
         "@type": "Organization",
         "@id": "https://misr-elevators.com/ar/#organization",
         "name": "مصر العربية للمصاعد",
+        "alternateName": "شركة مصر العربية للمصاعد",
         "url": "https://misr-elevators.com/ar",
         "logo": {
           "@type": "ImageObject",
           "url": "https://misr-elevators.com/images/hero-elevator.png",
-          "caption": "مصر العربية للمصاعد"
+          "caption": "مصر العربية للمصاعد - شركة مصاعد فاخرة في مصر"
         },
+        "foundingDate": "1979",
+        "description": "شركة رائدة في توريد وتركيب وصيانة المصاعد الفاخرة في مصر منذ ١٩٧٩.",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+20-2-3761-4500",
@@ -80,6 +110,8 @@ export default function HomeAr() {
           "@type": "PostalAddress",
           "streetAddress": "١٢ شارع البطل أحمد عبد العزيز، المهندسين",
           "addressLocality": "الجيزة",
+          "addressRegion": "محافظة الجيزة",
+          "postalCode": "12655",
           "addressCountry": "EG"
         },
         "geo": {
@@ -101,34 +133,56 @@ export default function HomeAr() {
           ],
           "opens": "09:00",
           "closes": "18:00"
-        }
+        },
+        "areaServed": [
+          { "@type": "City", "name": "القاهرة" },
+          { "@type": "City", "name": "الجيزة" },
+          { "@type": "City", "name": "الإسكندرية" },
+          { "@type": "Country", "name": "مصر" }
+        ]
       },
       {
         "@type": "Service",
-        "name": "توريد وتركيب مصاعد ركاب",
-        "provider": {
-          "@id": "https://misr-elevators.com/ar/#organization"
-        },
+        "name": "توريد وتركيب مصاعد كهربائية",
+        "provider": { "@id": "https://misr-elevators.com/ar/#organization" },
         "areaServed": "EG",
-        "description": "توريد وتركيب مصاعد ركاب سكنية وتجارية فاخرة في القاهرة والجيزة بأعلى معايير الأمان."
+        "description": "مصاعد كهربائية بأحدث التقنيات الألمانية والإيطالية للمباني التجارية والسكنية في مصر."
       },
       {
         "@type": "Service",
-        "name": "تصميم مصاعد بانوراما زجاجية",
-        "provider": {
-          "@id": "https://misr-elevators.com/ar/#organization"
-        },
+        "name": "توريد وتركيب مصاعد هيدروليك",
+        "provider": { "@id": "https://misr-elevators.com/ar/#organization" },
         "areaServed": "EG",
-        "description": "مصاعد زجاجية بانورامية دائرية ومربعة مخصصة ذات إطلالة فاخرة وتشطيبات نحاسية وذهبية راقية."
+        "description": "مصاعد هيدروليك ناعمة للفيلات والمباني منخفضة الارتفاع بدون حاجة لغرفة ماكينة."
       },
       {
         "@type": "Service",
-        "name": "صيانة مصاعد طوارئ ٢٤/٧",
-        "provider": {
-          "@id": "https://misr-elevators.com/ar/#organization"
-        },
+        "name": "تصميم وتصنيع مصاعد بانوراما زجاجية",
+        "provider": { "@id": "https://misr-elevators.com/ar/#organization" },
         "areaServed": "EG",
-        "description": "عقود صيانة دورية شهرية وخدمة طوارئ سريعة لإنقاذ أعطال المصاعد على مدار ٢٤ ساعة طوال أيام الأسبوع."
+        "description": "مصاعد زجاجية بانورامية دائرية ومربعة مخصصة ذات إطلالة فاخرة وتشطيبات نحاسية وذهبية بهندسة ألمانية."
+      },
+      {
+        "@type": "Service",
+        "name": "توريد مصاعد طعام وخدمات",
+        "provider": { "@id": "https://misr-elevators.com/ar/#organization" },
+        "areaServed": "EG",
+        "description": "مصاعد خدمة مدمجة للمطاعم والفنادق والمطابخ بتصميم من الستانلس ستيل."
+      },
+      {
+        "@type": "Service",
+        "name": "صيانة مصاعد طوارئ ٢٤/٧ وإنقاذ",
+        "provider": { "@id": "https://misr-elevators.com/ar/#organization" },
+        "areaServed": "EG",
+        "description": "خدمة طوارئ سريعة لإنقاذ أعطال المصاعد على مدار ٢٤ ساعة وعقود صيانة دورية في القاهرة والجيزة."
+      },
+      {
+        "@type": "Product",
+        "name": "مصعد بانوراما زجاجي فاخر",
+        "category": "مصعد",
+        "description": "مصعد بانورامي زجاجي فاخر بماكينة جر ألمانية وإضاءة LED محيطة وتشطيبات مخصصة.",
+        "brand": { "@type": "Brand", "name": "مصر العربية للمصاعد" },
+        "material": ["زجاج مقسّى مصفح", "ستانلس ستيل", "نحاس"]
       },
       {
         "@type": "FAQPage",
@@ -139,6 +193,14 @@ export default function HomeAr() {
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "عادة يستغرق توريد وتركيب المصعد في مصر من ٤ إلى ٨ أسابيع، ويتوقف ذلك على مدى جاهزية بئر المصعد الإنشائي والمواصفات المطلوبة وتصاريح الاستيراد."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "كم تكلفة تركيب مصعد في الفيلا في مصر؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "تختلف تكلفة مصعد الفيلا في مصر حسب النوع والسعة والتشطيبات. المصاعد الهيدروليكية أقل تكلفة، بينما المصاعد البانورامية الزجاجية المخصصة بماكينات ألمانية تأتي بأسعار متميزة. تواصل مع فريقنا للحصول على عرض سعر دقيق."
             }
           },
           {
@@ -163,7 +225,7 @@ export default function HomeAr() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF0ED] dark:bg-black text-neutral-900 dark:text-[#FAF0ED] transition-colors duration-500 overflow-x-hidden selection:bg-[#ec4e39] selection:text-white">
+    <div className="min-h-screen overflow-x-hidden selection:bg-[#ec4e39] selection:text-white" style={{ backgroundColor: 'var(--c-bg)', color: 'var(--c-text)' }}>
       {/* JSON-LD Schema Markup */}
       <script
         type="application/ld+json"

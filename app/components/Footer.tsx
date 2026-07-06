@@ -99,18 +99,20 @@ export default function Footer({ lang = "en" }: FooterProps) {
 
   return (
     <footer
-      className="relative w-full bg-[#0b0a0a] text-[#FAF0ED] pt-16 pb-8 px-4 md:px-8 lg:px-16 border-t border-white/10 overflow-hidden"
+      className="relative w-full pt-16 pb-8 px-4 md:px-8 lg:px-16 overflow-hidden"
+      style={{ backgroundColor: '#0b0a0a', color: '#FAF0ED', borderTop: '1px solid rgba(250, 240, 237, 0.08)' }}
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background accents */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#ec4e39] filter blur-[150px]" />
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-[#c5a880] filter blur-[200px]" style={{ opacity: 0.03 }} />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#ec4e39] filter blur-[200px]" style={{ opacity: 0.04 }} />
       </div>
 
       <div className="max-w-[1200px] mx-auto relative z-10">
         
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12" style={{ borderBottom: '1px solid rgba(250, 240, 237, 0.08)' }}>
           
           {/* Brand Col - 4 cols */}
           <div className="lg:col-span-4 flex flex-col gap-5">
@@ -261,7 +263,7 @@ export default function Footer({ lang = "en" }: FooterProps) {
         </div>
 
         {/* Accreditations Badge Row */}
-        <div className="py-6 border-b border-white/10 flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-start items-center">
+        <div className="py-6 flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-start items-center" style={{ borderBottom: '1px solid rgba(250, 240, 237, 0.08)' }}>
           <span className={cn("text-[9px] font-bold text-[#c5a880] uppercase tracking-widest", isRTL && "font-cairo")}>
             {t.standardsTitle}:
           </span>

@@ -51,12 +51,15 @@ export default function Home() {
         "@type": "Organization",
         "@id": "https://misr-elevators.com/#organization",
         "name": "Masr Al Arabya Elevators",
+        "alternateName": "Arab Egypt for Elevators",
         "url": "https://misr-elevators.com",
         "logo": {
           "@type": "ImageObject",
           "url": "https://misr-elevators.com/images/hero-elevator.png",
-          "caption": "Masr Al Arabya Elevators"
+          "caption": "Masr Al Arabya Elevators - Premium Elevator Company Egypt"
         },
+        "foundingDate": "1979",
+        "description": "Egypt's premier elevator company specializing in luxury villa elevators, panoramic glass lifts, hydraulic elevators, and commercial passenger elevators.",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+20-2-3761-4500",
@@ -80,6 +83,8 @@ export default function Home() {
           "@type": "PostalAddress",
           "streetAddress": "12 El-Batal Ahmed Abdel Aziz St, Mohandessin",
           "addressLocality": "Giza",
+          "addressRegion": "Giza Governorate",
+          "postalCode": "12655",
           "addressCountry": "EG"
         },
         "geo": {
@@ -101,34 +106,56 @@ export default function Home() {
           ],
           "opens": "09:00",
           "closes": "18:00"
-        }
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Cairo" },
+          { "@type": "City", "name": "Giza" },
+          { "@type": "City", "name": "Alexandria" },
+          { "@type": "Country", "name": "Egypt" }
+        ]
       },
       {
         "@type": "Service",
-        "name": "Passenger Elevator Installation & Supply",
-        "provider": {
-          "@id": "https://misr-elevators.com/#organization"
-        },
+        "name": "Electric Elevator Installation & Supply",
+        "provider": { "@id": "https://misr-elevators.com/#organization" },
         "areaServed": "EG",
-        "description": "Premium passenger elevator design, supply, and installation across Cairo and Giza."
+        "description": "German & Italian electric traction elevators for commercial and residential buildings across Egypt."
       },
       {
         "@type": "Service",
-        "name": "Panoramic Glass Lift Custom Design",
-        "provider": {
-          "@id": "https://misr-elevators.com/#organization"
-        },
+        "name": "Hydraulic Elevator Installation & Supply",
+        "provider": { "@id": "https://misr-elevators.com/#organization" },
         "areaServed": "EG",
-        "description": "High-end luxury circular glass panoramic elevators with custom finishes."
+        "description": "Smooth hydraulic home elevators for villas and low-rise buildings. No machine room required."
+      },
+      {
+        "@type": "Service",
+        "name": "Panoramic Glass Lift Custom Design & Installation",
+        "provider": { "@id": "https://misr-elevators.com/#organization" },
+        "areaServed": "EG",
+        "description": "Luxury circular and rectangular panoramic glass elevators with German engineering and custom architectural finishes."
+      },
+      {
+        "@type": "Service",
+        "name": "Food & Service Elevator Supply",
+        "provider": { "@id": "https://misr-elevators.com/#organization" },
+        "areaServed": "EG",
+        "description": "Compact service elevators for restaurants, hotels, kitchens, and hospitality projects."
       },
       {
         "@type": "Service",
         "name": "24/7 Emergency Elevator Maintenance & Repair",
-        "provider": {
-          "@id": "https://misr-elevators.com/#organization"
-        },
+        "provider": { "@id": "https://misr-elevators.com/#organization" },
         "areaServed": "EG",
-        "description": "Emergency elevator breakdown rescue and monthly maintenance contracts."
+        "description": "Round-the-clock emergency elevator breakdown rescue and monthly preventive maintenance contracts across Cairo and Giza."
+      },
+      {
+        "@type": "Product",
+        "name": "Panoramic Glass Elevator",
+        "category": "Elevator",
+        "description": "Premium panoramic glass elevator with German traction machinery, LED ambient lighting, and custom finishes.",
+        "brand": { "@type": "Brand", "name": "Masr Al Arabya Elevators" },
+        "material": ["Tempered laminated glass", "Stainless steel", "Brass"]
       },
       {
         "@type": "FAQPage",
@@ -139,6 +166,14 @@ export default function Home() {
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Typically, elevator supply and installation in Egypt takes 4 to 8 weeks, depending on shaft construction, customization requirements, and import approvals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a home elevator cost in Egypt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Home elevator costs in Egypt vary based on type, capacity, and customization. Hydraulic home lifts start at a lower price point, while custom panoramic glass elevators with German machinery are premium-priced. Contact our team for a tailored quotation."
             }
           },
           {

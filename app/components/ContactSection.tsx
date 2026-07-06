@@ -413,8 +413,8 @@ export default function ContactSection({ lang = "en" }: ContactSectionProps) {
 
             <form ref={formRef} onSubmit={handleSubmit} className="mt-6 space-y-4">
               
-              {/* Honeypot Spam Protection (Invisible to humans) */}
-              <div className="hidden" aria-hidden="true">
+              {/* Honeypot Spam Protection (Off-screen, invisible to humans & autofill) */}
+              <div className="absolute -left-[9999px] -top-[9999px] opacity-0 h-0 overflow-hidden pointer-events-none" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden', pointerEvents: 'none' }}>
                 <label htmlFor="botField">Leave this field blank</label>
                 <input
                   type="text"

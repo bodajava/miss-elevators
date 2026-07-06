@@ -4,7 +4,15 @@ import nodemailer from "nodemailer";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, company, message, projectType, country } = body;
+    const { name, email, phone, company, message, projectType, country, botField } = body;
+
+    // Server-side honeypot check — if botField is filled, silently succeed
+    if (botField) {
+      console.warn("Honeypot triggered — bot detected, form submission ignored.");
+      return NextResponse.json({ success: true, honeypot: true });
+    }
+
+    console.log(`Contact form submission from ${name} <${email || "no-email"}> — project: ${projectType || "General"}`);
 
     // Check if Web3Forms Access Key is configured
     const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY;
@@ -62,11 +70,11 @@ export async function POST(request: Request) {
       host,
       port,
       secure: port === 465,
-      auth: {
-        user,
-        pass,
-      },
+      auth: { user, pass },
     });
+
+    await transporter.verify();
+    console.log(`SMTP connection verified — sending lead email to ${receiver}`);
 
     const mailOptions = {
       from: `"Masr Al Arabya Elevators" <${user}>`,
@@ -148,10 +156,11 @@ export async function POST(request: Request) {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log(`Email sent successfully — messageId: ${info.messageId}, accepted: ${(info.accepted || []).join(", ")}`);
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Error in contact API:", error);
+    console.error("Error in contact API:", error.message || error);
     return NextResponse.json(
       { success: false, error: error.message || "Failed to send email." },
       { status: 500 }
