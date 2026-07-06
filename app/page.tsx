@@ -1,65 +1,209 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import AureliaHero from "./components/AureliaHero";
+import SideMenu from "./components/SideMenu";
+import StickyCursor from "./components/StickyCursor";
+import AboutSection from "./components/AboutSection";
+import ServicesSection from "./components/ServicesSection";
+import ProjectsSection from "./components/ProjectsSection";
+import CurvedLoop from "@/components/ui/CurvedLoop";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+
+export const metadata: Metadata = {
+  title: "Masr Al Arabya Elevators | Premium Elevator Company in Egypt",
+  description: "Elevating luxury since 1979. Premier elevator company in Giza & Egypt specializing in customized villa elevators, panoramic glass lifts, and 24/7 maintenance.",
+  alternates: {
+    canonical: "https://misr-elevators.com",
+    languages: {
+      "en-US": "https://misr-elevators.com",
+      "ar-EG": "https://misr-elevators.com/ar",
+    },
+  },
+  openGraph: {
+    title: "Masr Al Arabya Elevators | Premium Lifts in Egypt",
+    description: "Leading elevator company in Giza & Egypt. Custom panoramic glass lifts, luxury home villa elevators, and European certified components.",
+    url: "https://misr-elevators.com",
+    siteName: "Masr Al Arabya Elevators",
+    images: [
+      {
+        url: "https://misr-elevators.com/images/hero-elevator.png",
+        width: 1200,
+        height: 630,
+        alt: "Masr Al Arabya Elevators - Premium Glass Elevator Egypt",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Masr Al Arabya Elevators | Premium Lifts in Egypt",
+    description: "Leading elevator company in Giza & Egypt. Custom panoramic glass lifts, luxury home villa elevators, and European certified components.",
+    images: ["https://misr-elevators.com/images/hero-elevator.png"],
+  },
+};
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://misr-elevators.com/#organization",
+        "name": "Masr Al Arabya Elevators",
+        "url": "https://misr-elevators.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://misr-elevators.com/images/hero-elevator.png",
+          "caption": "Masr Al Arabya Elevators"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+20-2-3761-4500",
+          "contactType": "customer service",
+          "areaServed": "EG",
+          "availableLanguage": ["Arabic", "English"]
+        },
+        "sameAs": [
+          "https://www.facebook.com/share/19JhLUey1d/?mibextid=wwXIfr",
+          "https://www.instagram.com/arab_egypt_for_elevator?igsh=MXJqcnpoajB0bDlhaA=="
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://misr-elevators.com/#localbusiness",
+        "name": "Masr Al Arabya Elevators",
+        "image": "https://misr-elevators.com/images/hero-elevator.png",
+        "telephone": "+20-2-3761-4500",
+        "email": "info@arabegypt-elevators.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "12 El-Batal Ahmed Abdel Aziz St, Mohandessin",
+          "addressLocality": "Giza",
+          "addressCountry": "EG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 30.0468984,
+          "longitude": 31.2016335
+        },
+        "url": "https://misr-elevators.com",
+        "priceRange": "$$$$",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Passenger Elevator Installation & Supply",
+        "provider": {
+          "@id": "https://misr-elevators.com/#organization"
+        },
+        "areaServed": "EG",
+        "description": "Premium passenger elevator design, supply, and installation across Cairo and Giza."
+      },
+      {
+        "@type": "Service",
+        "name": "Panoramic Glass Lift Custom Design",
+        "provider": {
+          "@id": "https://misr-elevators.com/#organization"
+        },
+        "areaServed": "EG",
+        "description": "High-end luxury circular glass panoramic elevators with custom finishes."
+      },
+      {
+        "@type": "Service",
+        "name": "24/7 Emergency Elevator Maintenance & Repair",
+        "provider": {
+          "@id": "https://misr-elevators.com/#organization"
+        },
+        "areaServed": "EG",
+        "description": "Emergency elevator breakdown rescue and monthly maintenance contracts."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long does it take to install an elevator in Egypt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Typically, elevator supply and installation in Egypt takes 4 to 8 weeks, depending on shaft construction, customization requirements, and import approvals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide emergency breakdown rescue in Cairo and Giza?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our certified maintenance engineers provide 24/7 emergency breakdown rescue and priority repairs throughout Cairo and Giza."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are your elevator machinery imports European certified?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, all our elevator motors, gearboxes, and safety gears are imported from top German and Italian manufacturers, carrying full CE quality markings and EN 81 safety compliance."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* JSON-LD Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {/* Sticky Custom Circular Cursor */}
+      <StickyCursor />
+
+      {/* Floating Side Menu Drawer (Awwwards Style Toggler) */}
+      <SideMenu lang="en" />
+
+      {/* HERO SECTION WITH EMBEDDED TRANSPARENT GLASS NAV BAR */}
+      <AureliaHero lang="en" />
+
+      {/* CURVED LOOP MARQUEE SEPARATOR */}
+      <div className="w-full bg-[var(--c-bg)] py-3 overflow-hidden border-y border-[var(--c-border)]/15">
+        <CurvedLoop
+          marqueeText="MASR AL ARABYA ELEVATORS ✦ LUXURY RESIDENTIAL TRANSIT SINCE 1979 ✦ CERTIFIED EUROPEAN SAFETY ✦ HIGH-END PANORAMIC SHAFTS ✦"
+          speed={1.2}
+          curveAmount={60}
+          direction="left"
+          interactive={true}
+          className="text-lg md:text-xl font-bold tracking-widest text-[#ec4e39] font-sans"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      {/* ABOUT SECTION */}
+      <AboutSection lang="en" />
+
+      {/* SERVICES SECTION */}
+      <ServicesSection lang="en" />
+
+      {/* PROJECTS SECTION */}
+      <ProjectsSection lang="en" />
+
+      {/* CONTACT SECTION */}
+      <ContactSection lang="en" />
+
+      {/* FOOTER */}
+      <Footer lang="en" />
+    </>
   );
 }
