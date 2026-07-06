@@ -53,6 +53,20 @@ const projectData = {
         description: "Kitchen service dumbwaiter speed tuning and safety tests.",
         image: "/images/2026-07-07 01.41.41.jpg",
       },
+      {
+        title: "Heritage Building Modernization",
+        type: "Retrofit Traction Lift",
+        location: "Cairo, Egypt",
+        description: "Bespoke elevator integration inside historical heritage shaft structures.",
+        image: "/images/2026-07-07 01.41.45.jpg",
+      },
+      {
+        title: "Commercial Plaza Traction System",
+        type: "MRL Traction Elevators",
+        location: "New Cairo, Egypt",
+        description: "High-traffic electric traction systems designed for modern retail shopping malls.",
+        image: "/images/2026-07-07 01.42.41.jpg",
+      },
     ],
 
     featuredTitle: "Featured Masterpiece",
@@ -184,6 +198,20 @@ const projectData = {
         location: "المعادي، القاهرة",
         description: "ضبط سرعة مصعد خدمة المطابخ واختبارات الأمان والسلامة.",
         image: "/images/2026-07-07 01.41.41.jpg",
+      },
+      {
+        title: "تحديث مصعد عمارة تراثية",
+        type: "تحديث وتركيب مصعد جر",
+        location: "القاهرة، مصر",
+        description: "تكامل مصعد مخصص وتحديثه داخل الفراغات المعمارية للمباني التراثية.",
+        image: "/images/2026-07-07 01.41.45.jpg",
+      },
+      {
+        title: "مول القاهرة الجديدة التجاري",
+        type: "مصاعد جر بدون غرفة ماكينة",
+        location: "القاهرة الجديدة، مصر",
+        description: "أنظمة مصاعد جر كهربائية عالية التردد للمراكز التجارية.",
+        image: "/images/2026-07-07 01.42.41.jpg",
       },
     ],
 
@@ -701,7 +729,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
           </div>
         </div>
 
-        {/* 3. PROJECT GALLERY (REAL PROJECTS) */}
+        {/* 3. PROJECT GALLERY — LUXURY PORTFOLIO GRID */}
         <div ref={videoSectionRef} className="pt-16 pb-12 relative z-10">
           <div className="pb-8">
             <span className={cn("text-[#ec4e39] text-[10px] md:text-xs font-bold uppercase tracking-widest", isRTL && "font-cairo")}>
@@ -715,13 +743,13 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
             </p>
           </div>
 
-          {/* Grid layout (3 desktop, 2 tablet, 1 mobile) */}
+          {/* Responsive grid: 3 cols desktop, 2 tablet, 1 mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full mt-6">
             {content.gallery.map((item, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveImage({ src: item.image, title: item.title })}
-                className="relative rounded-[24px] overflow-hidden border text-start flex flex-col justify-end group outline-none aspect-[16/10] w-full cursor-pointer"
+                className="relative rounded-[24px] overflow-hidden border text-start flex flex-col justify-end group outline-none aspect-[4/3] w-full cursor-pointer"
                 style={{ borderColor: 'var(--c-border)' }}
                 aria-label={`View ${item.title}`}
               >
@@ -729,38 +757,27 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  className="object-cover group-hover:scale-[1.05] transition-transform duration-700"
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
                   loading="lazy"
                 />
                 
-                {/* Gradient mask */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
 
-                {/* View icon */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center border-2 border-white/30 bg-black/20 backdrop-blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100 group-focus:opacity-100 z-10"
-                  style={{ borderColor: 'rgba(255,255,255,0.3)' }}
-                >
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
-                  </svg>
-                </div>
+                {/* Accent line on hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#ec4e39] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
 
                 {/* Info contents */}
-                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end min-h-[140px] pointer-events-none">
-                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-white/70 font-bold mb-2">
+                <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6 flex flex-col justify-end pointer-events-none">
+                  <div className="flex items-center gap-2 text-[9px] lg:text-[10px] uppercase tracking-wider text-white/60 font-bold mb-1.5">
                     <span>{item.location}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+                    <span className="w-1 h-1 rounded-full bg-[#ec4e39]" />
                     <span>{item.type}</span>
                   </div>
-
-                  <h4 className={cn("text-sm lg:text-base font-semibold leading-tight font-serif text-white truncate", isRTL && "font-cairo")}>
+                  <h4 className={cn("text-sm lg:text-base font-semibold leading-tight font-serif text-white", isRTL && "font-cairo")}>
                     {item.title}
                   </h4>
-
-                  <p className={cn("text-[11px] text-white/50 mt-1 leading-relaxed select-text truncate", isRTL && "font-cairo")}>
-                    {item.description}
-                  </p>
                 </div>
               </button>
             ))}
@@ -781,7 +798,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
             </p>
           </div>
 
-          {/* Desktop/Tablet: responsive grid with hover-to-play */}
+          {/* Desktop/Tablet: responsive grid with clean hover-to-play */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
             {content.videos.map((video, idx) => (
               <div
@@ -802,7 +819,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
                 aria-label={`Play video: ${video.title}`}
                 onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setActiveVideo({ src: video.src, title: video.title, poster: video.poster }); }}
               >
-                {/* Video element (hidden by default, shown on hover via opacity) */}
+                {/* Video element — plays muted on hover */}
                 <video
                   src={video.src}
                   muted
@@ -812,7 +829,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
                   className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
 
-                {/* Poster image */}
+                {/* Poster image — fades out on hover */}
                 <Image
                   src={video.poster}
                   alt={video.title}
@@ -825,21 +842,17 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
                 {/* Gradient mask */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
 
-                {/* Play button */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full flex items-center justify-center border-2 border-white/60 bg-black/30 backdrop-blur-sm transition-all duration-300 group-hover:bg-[#ec4e39] group-hover:border-[#ec4e39] group-hover:scale-110 z-10">
-                  <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
+                {/* Accent line on hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#ec4e39] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
 
-                {/* Info */}
-                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end min-h-[120px] pointer-events-none">
-                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-wider text-white/70 font-bold mb-2">
+                {/* Info — always visible */}
+                <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6 flex flex-col justify-end pointer-events-none">
+                  <div className="flex items-center gap-2 text-[9px] lg:text-[10px] uppercase tracking-wider text-white/60 font-bold mb-1.5">
                     <span>{video.location}</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+                    <span className="w-1 h-1 rounded-full bg-[#ec4e39]" />
                     <span>{video.category}</span>
                   </div>
-                  <h4 className={cn("text-sm lg:text-base font-semibold leading-tight font-serif text-white truncate", isRTL && "font-cairo")}>
+                  <h4 className={cn("text-sm lg:text-base font-semibold leading-tight font-serif text-white", isRTL && "font-cairo")}>
                     {video.title}
                   </h4>
                 </div>
