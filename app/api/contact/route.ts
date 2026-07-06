@@ -6,29 +6,62 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, phone, company, message, projectType, country } = body;
 
-    // Check if SMTP environment variables are configured
+    // Check if Web3Forms Access Key is configured
+    const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY;
+
+    if (web3formsKey) {
+      // Forward submission securely to Web3Forms API
+      const web3Response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          subject: `New Lead: ${name} (${projectType || "Elevator Inquiry"})`,
+          from_name: "Masr Al Arabya Elevators",
+          name,
+          email: email || "Not Provided",
+          phone,
+          company: company || "Not Provided",
+          country: country || "Egypt",
+          project_type: projectType || "General Inquiry",
+          message,
+        }),
+      });
+
+      const web3Data = await web3Response.json();
+      if (web3Response.ok && web3Data.success) {
+        return NextResponse.json({ success: true });
+      } else {
+        throw new Error(web3Data.message || "Web3Forms submission failed.");
+      }
+    }
+
+    // SMTP Configuration variables
     const host = process.env.SMTP_HOST || "smtp.gmail.com";
     const port = parseInt(process.env.SMTP_PORT || "587");
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
     const receiver = process.env.CONTACT_RECEIVER_EMAIL || "bbido761@gmail.com";
 
-    // If SMTP details are not configured, print to console as fallback
+    // If neither Web3Forms nor SMTP user/pass is configured, fallback to console log
     if (!user || !pass) {
-      console.warn("SMTP credentials (SMTP_USER / SMTP_PASS) not configured. Printing form data instead:");
+      console.warn("SMTP / Web3Forms credentials not configured. Printing form data instead:");
       console.log({ name, email, phone, company, message, projectType, country });
       
-      // Return success in dev mode even if email couldn't be sent physically
       return NextResponse.json({ 
         success: true, 
-        warning: "SMTP not configured. Form logged to server console successfully." 
+        warning: "SMTP/Web3Forms not configured. Form logged to server console successfully." 
       });
     }
 
+    // SMTP Mailing
     const transporter = nodemailer.createTransport({
       host,
       port,
-      secure: port === 465, // true for port 465, false for 587
+      secure: port === 465,
       auth: {
         user,
         pass,
