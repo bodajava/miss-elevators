@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Magnetic from "./Magnetic";
 
 interface FooterProps {
   lang?: "en" | "ar";
@@ -12,9 +11,21 @@ const copy = {
     brandDesc: "Masr Al Arabya Elevators — Elevating luxury residential and commercial vertical transportation across Cairo and Giza since 1979 with certified European safety components.",
     linksTitle: "Quick Navigation",
     productsTitle: "Elevator Solutions",
-    standardsTitle: "Accreditations",
-    emergencyTitle: "24/7 Priority Support",
-    emergencySubtitle: "Emergency Breakdown & Rescue",
+    contactTitle: "Contact Information",
+    
+    // Contacts
+    addressLabel: "Address",
+    addressValue: "12 El-Batal Ahmed Abdel Aziz St, Mohandessin, Giza, Egypt",
+    phoneLabel: "Phone",
+    phoneValue: "+20 2 3761 4500",
+    whatsappLabel: "WhatsApp Sales",
+    whatsappValue: "+20 100 123 4567",
+    emailLabel: "Email",
+    emailValue: "info@arabegypt-elevators.com",
+    hoursLabel: "Working Hours",
+    hoursValue: "Sat – Thu: 9:00 AM – 6:00 PM",
+    
+    emergencyTitle: "24/7 Emergency Maintenance",
     emergencyPhone: "+20 100 999 8888",
     
     linkHome: "Home",
@@ -29,6 +40,7 @@ const copy = {
     prodFood: "Service & Dumbwaiters",
     prodModernization: "Elevator Modernization",
     
+    standardsTitle: "Accreditations",
     stdCe: "CE European Quality Certified",
     stdEn81: "EN 81 Safety Compliant",
     stdIso: "ISO 9001:2015 Management",
@@ -41,9 +53,21 @@ const copy = {
     brandDesc: "شركة مصر العربية للمصاعد — شركة رائدة في توريد وتركيب وصيانة المصاعد الفاخرة للفلل والمباني التجارية والسكنية في القاهرة والجيزة منذ عام ١٩٧٩ بقطع غيار إيطالية وألمانية معتمدة.",
     linksTitle: "روابط سريعة",
     productsTitle: "حلول المصاعد",
-    standardsTitle: "الاعتمادات والجودة",
-    emergencyTitle: "الدعم الفني العاجل ٢٤/٧",
-    emergencySubtitle: "طوارئ تعطل المصاعد والإنقاذ",
+    contactTitle: "بيانات الاتصال",
+    
+    // Contacts
+    addressLabel: "العنوان",
+    addressValue: "١٢ شارع البطل أحمد عبد العزيز، المهندسين، الجيزة، مصر",
+    phoneLabel: "الهاتف",
+    phoneValue: "+٢٠ ٢ ٣٧٦١ ٤٥٠٠",
+    whatsappLabel: "واتساب المبيعات",
+    whatsappValue: "+٢٠ ١٠٠ ١٢٣ ٤٥٦٧",
+    emailLabel: "البريد الإلكتروني",
+    emailValue: "info@arabegypt-elevators.com",
+    hoursLabel: "ساعات العمل",
+    hoursValue: "السبت – الخميس: ٩:٠٠ ص – ٦:٠٠ م",
+    
+    emergencyTitle: "طوارئ الصيانة والإنقاذ ٢٤/٧",
     emergencyPhone: "+٢٠ ١٠٠ ٩٩٩ ٨٨٨٨",
     
     linkHome: "الرئيسية",
@@ -58,6 +82,7 @@ const copy = {
     prodFood: "مصاعد الطعام والخدمات",
     prodModernization: "تحديث وتطوير المصاعد",
     
+    standardsTitle: "الاعتمادات والجودة",
     stdCe: "شهادة الجودة الأوروبية CE",
     stdEn81: "مطابق لمواصفات السلامة EN 81",
     stdIso: "شهادة الجودة ISO 9001:2015",
@@ -74,7 +99,7 @@ export default function Footer({ lang = "en" }: FooterProps) {
 
   return (
     <footer
-      className="relative w-full bg-[#0b0a0a] text-white pt-16 pb-8 px-4 md:px-8 lg:px-16 border-t border-white/10 overflow-hidden"
+      className="relative w-full bg-[#0b0a0a] text-[#FAF0ED] pt-16 pb-8 px-4 md:px-8 lg:px-16 border-t border-white/10 overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background accents */}
@@ -82,16 +107,16 @@ export default function Footer({ lang = "en" }: FooterProps) {
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#ec4e39] filter blur-[150px]" />
       </div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-[1200px] mx-auto relative z-10">
         
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
           {/* Brand Col - 4 cols */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
+          <div className="lg:col-span-4 flex flex-col gap-5">
             <div className="flex items-center gap-3">
               {/* Logo Symbol */}
-              <div className="w-10 h-10 rounded-[12px] bg-[#ec4e39] flex items-center justify-center font-bold text-lg text-white shadow-md">
+              <div className="w-10 h-10 rounded-[12px] bg-[#ec4e39] flex items-center justify-center font-bold text-lg text-[#FAF0ED] shadow-md shrink-0">
                 {isRTL ? "م" : "M"}
               </div>
               <div>
@@ -109,7 +134,7 @@ export default function Footer({ lang = "en" }: FooterProps) {
             </p>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-4 mt-2">
+            <div className="flex items-center gap-4 mt-1">
               <a 
                 href="https://www.facebook.com/share/19JhLUey1d/?mibextid=wwXIfr" 
                 target="_blank" 
@@ -159,8 +184,8 @@ export default function Footer({ lang = "en" }: FooterProps) {
             </ul>
           </div>
 
-          {/* Products - 3 cols */}
-          <div className="lg:col-span-3 flex flex-col gap-4">
+          {/* Products - 2 cols */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
             <h4 className={cn("text-sm font-bold text-[#c5a880] uppercase tracking-wider", isRTL && "font-cairo")}>
               {t.productsTitle}
             </h4>
@@ -183,49 +208,81 @@ export default function Footer({ lang = "en" }: FooterProps) {
             </ul>
           </div>
 
-          {/* Accreditations & Emergency - 3 cols */}
-          <div className="lg:col-span-3 flex flex-col gap-6">
-            
-            {/* Standards */}
-            <div className="flex flex-col gap-4">
-              <h4 className={cn("text-sm font-bold text-[#c5a880] uppercase tracking-wider", isRTL && "font-cairo")}>
-                {t.standardsTitle}
-              </h4>
-              <ul className={cn("space-y-2 text-[10px] text-white/40 font-semibold uppercase tracking-wider", isRTL && "font-cairo")}>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#ec4e39]" />
-                  <span>{t.stdCe}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#ec4e39]" />
-                  <span>{t.stdEn81}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#ec4e39]" />
-                  <span>{t.stdIso}</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#ec4e39]" />
-                  <span>{t.stdCivil}</span>
-                </li>
-              </ul>
-            </div>
+          {/* Contact Information Column - 4 cols */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            <h4 className={cn("text-sm font-bold text-[#c5a880] uppercase tracking-wider", isRTL && "font-cairo")}>
+              {t.contactTitle}
+            </h4>
+            <ul className={cn("space-y-3 text-xs text-white/60", isRTL && "font-cairo")}>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-white shrink-0">{t.addressLabel}:</span>
+                <span>{t.addressValue}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-bold text-white shrink-0">{t.phoneLabel}:</span>
+                <a href={`tel:${t.phoneValue.replace(/\s+/g, "")}`} className="hover:text-[#ec4e39] transition-colors tracking-wide">
+                  {t.phoneValue}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-bold text-white shrink-0">{t.whatsappLabel}:</span>
+                <a href="https://wa.me/201001234567" target="_blank" rel="noopener noreferrer" className="hover:text-[#ec4e39] transition-colors tracking-wide">
+                  {t.whatsappValue}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-bold text-white shrink-0">{t.emailLabel}:</span>
+                <a href={`mailto:${t.emailValue}`} className="hover:text-[#ec4e39] transition-colors truncate">
+                  {t.emailValue}
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-white/40">
+                <span className="font-bold shrink-0">{t.hoursLabel}:</span>
+                <span>{t.hoursValue}</span>
+              </li>
+            </ul>
 
-            {/* Emergency Info block */}
-            <div className="p-4 rounded-[16px] border border-red-500/20 bg-red-500/5 flex flex-col gap-1">
-              <span className={cn("text-[9px] uppercase tracking-widest text-[#ec4e39] font-bold", isRTL && "font-cairo")}>
-                {t.emergencySubtitle}
-              </span>
-              <a 
-                href={`tel:${t.emergencyPhone.replace(/\s+/g, "").replace(/\+/g, "")}`} 
-                className="text-sm font-bold text-[#FAF0ED] hover:text-[#ec4e39] transition-colors tracking-wide"
-              >
-                {t.emergencyPhone}
-              </a>
+            {/* Emergency & Accreditations Block */}
+            <div className="mt-2 flex flex-col gap-3">
+              <div className="p-3.5 rounded-[12px] border border-red-500/20 bg-red-500/5 flex flex-col gap-1">
+                <span className={cn("text-[9px] uppercase tracking-widest text-[#ec4e39] font-bold", isRTL && "font-cairo")}>
+                  {t.emergencyTitle}
+                </span>
+                <a 
+                  href="tel:+201009998888" 
+                  className="text-xs font-bold text-[#FAF0ED] hover:text-[#ec4e39] transition-colors tracking-wider"
+                >
+                  {t.emergencyPhone}
+                </a>
+              </div>
             </div>
-
           </div>
 
+        </div>
+
+        {/* Accreditations Badge Row */}
+        <div className="py-6 border-b border-white/10 flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-start items-center">
+          <span className={cn("text-[9px] font-bold text-[#c5a880] uppercase tracking-widest", isRTL && "font-cairo")}>
+            {t.standardsTitle}:
+          </span>
+          <ul className={cn("flex flex-wrap gap-x-5 gap-y-2 text-[10px] text-white/40 font-semibold uppercase tracking-wider", isRTL && "font-cairo")}>
+            <li className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+              <span>{t.stdCe}</span>
+            </li>
+            <li className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+              <span>{t.stdEn81}</span>
+            </li>
+            <li className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+              <span>{t.stdIso}</span>
+            </li>
+            <li className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
+              <span>{t.stdCivil}</span>
+            </li>
+          </ul>
         </div>
 
         {/* Bottom Bar */}

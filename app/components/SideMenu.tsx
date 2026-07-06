@@ -268,7 +268,7 @@ export default function SideMenu({ lang = "en" }: SideMenuProps) {
 
           <div className="nav__footer" id="footerLinks">
             <a
-              href="tel:+201000000000"
+              href="tel:+20237614500"
               className={cn(
                 "nav__footer-link",
                 isRTL && "font-cairo text-right"
@@ -277,7 +277,7 @@ export default function SideMenu({ lang = "en" }: SideMenuProps) {
               {isRTL ? "اتصل بنا هاتفياً" : "Call Phone"}
             </a>
             <a
-              href="https://wa.me/201000000000"
+              href="https://wa.me/201001234567"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(

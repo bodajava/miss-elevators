@@ -243,9 +243,6 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
   const gridTitleRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -262,29 +259,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
     }
   }, []);
 
-  const handleMouseEnter = (idx: number) => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-    }
-    hoverTimeoutRef.current = setTimeout(() => {
-      setActiveIndex(idx);
-    }, 45); // 45ms debounce makes it incredibly stable!
-  };
 
-  const handleFocus = (idx: number) => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-    }
-    setActiveIndex(idx);
-  };
-
-  useEffect(() => {
-    return () => {
-      if (hoverTimeoutRef.current) {
-        clearTimeout(hoverTimeoutRef.current);
-      }
-    };
-  }, []);
 
   const isRTL = lang === "ar";
   const content = isRTL ? projectData.ar : projectData.en;
@@ -401,16 +376,6 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
     };
   }, [isRTL]);
 
-  // Handle ESC key to close video modal
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setActiveVideo(null);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   return (
     <section
@@ -508,31 +473,12 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
             </p>
           </div>
 
-          {/* DESKTOP HOVER-EXPAND SHOWCASE (md and above) */}
-          <div className="hidden md:flex gap-4 w-full h-[450px] lg:h-[500px]">
+          {/* STATIC HIGH-PERFORMANCE THUMBNAIL GRID (3 cards desktop, 2 tablet, 1 mobile) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full mt-6">
             {content.videos.map((vid, idx) => (
-              <motion.button
+              <div
                 key={idx}
-                role="button"
-                aria-label={`Play ${vid.title}`}
-                tabIndex={0}
-                onMouseEnter={() => handleMouseEnter(idx)}
-                onFocus={() => handleFocus(idx)}
-                onClick={() => setActiveVideo(vid.videoUrl)}
-                animate={{
-                  flexGrow: activeIndex === idx ? 3.2 : 1.0
-                }}
-                transition={{
-                  type: "tween",
-                  ease: [0.22, 1, 0.36, 1],
-                  duration: 0.5
-                }}
-                style={{
-                  flexShrink: 1,
-                  flexBasis: "140px",
-                  willChange: "flex-grow, transform",
-                }}
-                className="relative h-full rounded-[24px] overflow-hidden cursor-pointer select-none border border-[var(--c-border)]/20 shadow-lg text-start flex flex-col justify-end bg-black group outline-none focus-visible:ring-2 focus-visible:ring-[#ec4e39]"
+                className="relative rounded-[24px] overflow-hidden border border-[var(--c-border)]/20 shadow-lg text-start flex flex-col justify-end bg-black group outline-none aspect-[16/10]"
               >
                 {/* Background image thumbnail */}
                 <Image
@@ -540,137 +486,41 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
                   alt={vid.title}
                   fill
                   className="object-cover opacity-80 group-hover:scale-[1.03] transition-transform duration-700 pointer-events-none"
-                  sizes="(min-width: 1024px) 35vw, 50vw"
-                  priority={idx === 0}
+                  sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
+                  loading="lazy"
                 />
                 
                 {/* Gradient overlay mask */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent pointer-events-none" />
 
-                {/* Corner play indicator for narrow inactive items */}
-                <motion.div
-                  animate={{
-                    opacity: activeIndex === idx ? 0 : 0.65,
-                    scale: activeIndex === idx ? 0.7 : 1,
-                  }}
-                  transition={{ duration: 0.25 }}
-                  className={cn(
-                    "absolute top-6 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center border border-white/20 pointer-events-none",
-                    isRTL ? "left-6" : "right-6"
-                  )}
+                {/* Central play button (Indicates video preview, non-functional watermark style) */}
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/10 backdrop-blur-md text-white/50 flex items-center justify-center border border-white/20 select-none pointer-events-none"
+                  title="Project Video Preview"
                 >
-                  <svg className="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                </motion.div>
-
-                {/* Central play button for active expanded item */}
-                <motion.div
-                  animate={{
-                    scale: activeIndex === idx ? 1 : 0.7,
-                    opacity: activeIndex === idx ? 1 : 0,
-                  }}
-                  transition={{
-                    type: "tween",
-                    ease: [0.22, 1, 0.36, 1],
-                    duration: 0.45
-                  }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#ec4e39] text-white flex items-center justify-center shadow-lg pointer-events-none"
-                >
-                  <svg className="w-6 h-6 fill-current ml-1 rtl:mr-1 rtl:ml-0" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </motion.div>
+                </div>
 
                 {/* Bottom text block details */}
                 <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8 flex flex-col justify-end min-h-[140px] pointer-events-none">
-                  {/* Category and location info (Slides up and fades in on active) */}
-                  <motion.div
-                    animate={{
-                      opacity: activeIndex === idx ? 0.75 : 0,
-                      height: activeIndex === idx ? "auto" : 0,
-                      marginBottom: activeIndex === idx ? 8 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="flex items-center gap-2 text-[10px] lg:text-[11px] uppercase tracking-wider text-white/80 overflow-hidden font-bold"
-                  >
+                  {/* Category and location info */}
+                  <div className="flex items-center gap-2 text-[10px] lg:text-[11px] uppercase tracking-wider text-white/70 font-bold mb-2">
                     <span>{vid.location}</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-[#ec4e39]" />
                     <span>{vid.type}</span>
-                  </motion.div>
-
-                  {/* Title (Shrinks and changes color based on active index) */}
-                  <motion.h4
-                    animate={{
-                      fontSize: activeIndex === idx ? "1.5rem" : "1.05rem",
-                      color: activeIndex === idx ? "#ec4e39" : "#ffffff",
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className={cn(
-                      "font-semibold leading-tight font-serif select-none",
-                      isRTL && "font-cairo"
-                    )}
-                  >
-                    {vid.title}
-                  </motion.h4>
-
-                  {/* Description text (Reveals dynamically on active card) */}
-                  <motion.p
-                    animate={{
-                      opacity: activeIndex === idx ? 0.8 : 0,
-                      height: activeIndex === idx ? "auto" : 0,
-                      marginTop: activeIndex === idx ? 10 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className={cn("text-xs lg:text-sm text-white/70 overflow-hidden leading-relaxed select-none max-w-lg", isRTL && "font-cairo")}
-                  >
-                    {vid.desc}
-                  </motion.p>
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* MOBILE RESPONSIVE SNAP-SCROLL (below md) */}
-          <div
-            style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}
-            className="md:hidden scrollbar-none flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4"
-          >
-            {content.videos.map((vid, idx) => (
-              <div
-                key={idx}
-                role="button"
-                aria-label={`Play ${vid.title}`}
-                onClick={() => setActiveVideo(vid.videoUrl)}
-                className="snap-start shrink-0 w-[85vw] relative rounded-[20px] overflow-hidden aspect-[16/10] bg-black border border-white/10 shadow-md"
-              >
-                <Image
-                  src={vid.thumbnail}
-                  alt={vid.title}
-                  fill
-                  className="object-cover opacity-80"
-                  sizes="85vw"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                
-                {/* Always visible center play button on mobile */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#ec4e39] text-white flex items-center justify-center shadow-lg">
-                  <svg className="w-5 h-5 fill-current ml-1" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-
-                {/* Metadata & Title */}
-                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                  <div className="flex items-center gap-2 text-[9px] uppercase tracking-wider text-white/60 font-semibold mb-1">
-                    <span>{vid.location}</span>
-                    <span className="w-1 h-1 rounded-full bg-[#ec4e39]" />
-                    <span>{vid.type}</span>
                   </div>
-                  <h4 className={cn("text-sm font-bold", isRTL && "font-cairo")}>
+
+                  {/* Title */}
+                  <h4 className={cn("text-base lg:text-lg font-semibold leading-tight font-serif text-white", isRTL && "font-cairo")}>
                     {vid.title}
                   </h4>
+
+                  {/* Description text */}
+                  <p className={cn("text-xs text-white/60 mt-2 leading-relaxed select-text", isRTL && "font-cairo")}>
+                    {vid.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -793,37 +643,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
 
       </div>
 
-      {/* CINEMATIC MODAL VIDEO PLAYER */}
-      {activeVideo && (
-        <div
-          className="fixed inset-0 z-[999] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
-          onClick={() => setActiveVideo(null)}
-        >
-          <div
-            className="relative w-full max-w-5xl aspect-video rounded-[16px] overflow-hidden shadow-2xl bg-black border border-white/10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-black/60 text-white hover:bg-white hover:text-black flex items-center justify-center transition-colors duration-300"
-              onClick={() => setActiveVideo(null)}
-              aria-label="Close video player"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
 
-            {/* Cinematic video player */}
-            <video
-              src={activeVideo}
-              controls
-              autoPlay
-              className="w-full h-full object-contain"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }
