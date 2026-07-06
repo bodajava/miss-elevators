@@ -222,22 +222,34 @@ export default function ContactSection({ lang = "en" }: ContactSectionProps) {
     }
 
     try {
-      // Simulate API submit latency
-      await new Promise(resolve => setTimeout(resolve, 1800));
-      
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        company: "",
-        phone: "",
-        email: "",
-        country: isRTL ? "مصر" : "Egypt",
-        projectType: "",
-        message: "",
-        botField: ""
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsSubmitting(false);
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          company: "",
+          phone: "",
+          email: "",
+          country: isRTL ? "مصر" : "Egypt",
+          projectType: "",
+          message: "",
+          botField: ""
+        });
+      } else {
+        throw new Error(data.error || "Failed to send message.");
+      }
     } catch (err) {
+      console.error("Submission error:", err);
       setIsSubmitting(false);
       setSubmitStatus("error");
     }
