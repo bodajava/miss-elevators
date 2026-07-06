@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 import { cn } from "@/lib/utils";
-import Magnetic from "./Magnetic";
 import ThemeToggle from "./ThemeToggle";
 import RotatingText from "@/components/ui/RotatingText";
 
@@ -283,11 +283,17 @@ export default function AureliaHero({ lang = "en" }: AureliaHeroProps) {
             </div>
 
             {/* Center Logo */}
-            <Link href="#home" className="absolute left-1/2 -translate-x-1/2 top-4 md:top-6 z-10 flex flex-col items-center shrink-0 select-none">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 40 40" aria-hidden="true" className="text-[#ec4e39] md:w-9 md:h-9 hover:rotate-12 transition-transform">
-                <path fill="currentColor" d="M20 0c11.046 0 20 8.954 20 20v14a6 6 0 0 1-6 6H21v-8.774c0-2.002.122-4.076 1.172-5.78a10 10 0 0 1 6.904-4.627l.383-.062a.8.8 0 0 0 0-1.514l-.383-.062a10 10 0 0 1-8.257-8.257l-.062-.383a.8.8 0 0 0-1.514 0l-.062.383a9.999 9.999 0 0 1-4.627 6.904C12.85 18.878 10.776 19 8.774 19H.024C.547 8.419 9.29 0 20 0Z" />
-                <path fill="currentColor" d="M0 21h8.774c2.002 0 4.076.122 5.78 1.172a10.02 10.02 0 0 1 3.274 3.274C18.878 27.15 19 29.224 19 31.226V40H6a6 6 0 0 1-6-6V21ZM40 2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
-              </svg>
+            <Link href="#home" className="absolute left-1/2 -translate-x-1/2 top-3 md:top-5 z-10 flex flex-col items-center shrink-0 select-none group">
+              <div className="relative w-9 h-9 md:w-11 md:h-11 rounded-[12px] overflow-hidden ring-2 ring-white/10 group-hover:ring-[#ec4e39]/50 transition-all">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Masr Al Arabya Elevators"
+                  fill
+                  className="object-cover"
+                  sizes="44px"
+                  priority
+                />
+              </div>
               <p className={cn("tracking-wider text-[10px] md:text-sm mt-1 text-[#FAF0ED] uppercase hidden min-[360px]:block", isRTL ? "font-cairo" : "font-sans")}>{content.wordmark}</p>
               <span className={cn("text-[6px] md:text-[8px] tracking-widest text-neutral-400 hidden md:block", isRTL ? "font-cairo" : "font-sans")}>{content.tag}</span>
             </Link>

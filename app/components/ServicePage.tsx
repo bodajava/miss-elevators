@@ -100,7 +100,7 @@ const content = {
       title: "Food & Service Elevators",
       subtitle: "Compact vertical transport for hospitality & kitchens",
       description: "Streamline your operations with our compact service elevators. Perfect for restaurants, hotels, kitchens, and villas, they safely transport food, goods, and light cargo between floors.",
-      heroImage: "/images/2026-07-06 21.36.58.jpg",
+      heroImage: "/images/2026-07-07 01.41.41.jpg",
       features: [
         "Compact footprint — fits tight spaces",
         "Stainless steel interior options",
@@ -202,7 +202,7 @@ const content = {
       title: "مصاعد طعام وخدمات",
       subtitle: "نقل رأسي مضغوط للضيافة والمطابخ",
       description: "بسّط عملياتك مع مصاعد الخدمات المدمجة لدينا. مثالية للمطاعم والفنادق والمطابخ والفيلات، وتنقل الطعام والبضائع والحمولات الخفيفة بأمان بين الطوابق.",
-      heroImage: "/images/2026-07-06 21.36.58.jpg",
+      heroImage: "/images/2026-07-07 01.41.41.jpg",
       features: [
         "بصمة مدمجة — تناسب المساحات الضيقة",
         "خيارات داخلية من الستانلس ستيل",

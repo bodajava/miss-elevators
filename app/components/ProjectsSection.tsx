@@ -51,7 +51,7 @@ const projectData = {
         type: "Service Dumbwaiter",
         location: "Maadi, Cairo",
         description: "Kitchen service dumbwaiter speed tuning and safety tests.",
-        image: "/images/2026-07-06 21.36.58.jpg",
+        image: "/images/2026-07-07 01.41.41.jpg",
       },
     ],
 
@@ -183,7 +183,7 @@ const projectData = {
         type: "مصعد خدمات طعام",
         location: "المعادي، القاهرة",
         description: "ضبط سرعة مصعد خدمة المطابخ واختبارات الأمان والسلامة.",
-        image: "/images/2026-07-06 21.36.58.jpg",
+        image: "/images/2026-07-07 01.41.41.jpg",
       },
     ],
 
@@ -781,22 +781,43 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
             </p>
           </div>
 
-          {/* Desktop: 3-col grid | Mobile: horizontal scroll */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 w-full">
+          {/* Desktop/Tablet: responsive grid with hover-to-play */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
             {content.videos.map((video, idx) => (
-              <button
+              <div
                 key={idx}
+                onMouseEnter={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) { vid.muted = true; vid.play().catch(() => {}); }
+                }}
+                onMouseLeave={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) { vid.pause(); vid.currentTime = 0; }
+                }}
                 onClick={() => setActiveVideo({ src: video.src, title: video.title, poster: video.poster })}
                 className="relative rounded-[24px] overflow-hidden border text-start flex flex-col justify-end group outline-none aspect-[4/3] w-full cursor-pointer"
                 style={{ borderColor: 'var(--c-border)' }}
+                role="button"
+                tabIndex={0}
                 aria-label={`Play video: ${video.title}`}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setActiveVideo({ src: video.src, title: video.title, poster: video.poster }); }}
               >
+                {/* Video element (hidden by default, shown on hover via opacity) */}
+                <video
+                  src={video.src}
+                  muted
+                  preload="metadata"
+                  playsInline
+                  poster={video.poster}
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                />
+
                 {/* Poster image */}
                 <Image
                   src={video.poster}
                   alt={video.title}
                   fill
-                  className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  className="object-cover group-hover:opacity-0 transition-opacity duration-500"
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw"
                   loading="lazy"
                 />
@@ -822,7 +843,7 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
                     {video.title}
                   </h4>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
 
@@ -837,14 +858,16 @@ export default function ProjectsSection({ lang = "en" }: ProjectsSectionProps) {
                   style={{ borderColor: 'var(--c-border)' }}
                   aria-label={`Play video: ${video.title}`}
                 >
-                  <Image
-                    src={video.poster}
-                    alt={video.title}
-                    fill
-                    className="object-cover"
-                    sizes="280px"
-                    loading="lazy"
-                  />
+                  <div className="absolute inset-0">
+                    <video
+                      src={video.src}
+                      muted
+                      preload="metadata"
+                      playsInline
+                      poster={video.poster}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center border-2 border-white/60 bg-black/30 backdrop-blur-sm z-10">
                     <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
