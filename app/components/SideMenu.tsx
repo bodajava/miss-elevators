@@ -208,14 +208,14 @@ export default function SideMenu({ lang = "en" }: SideMenuProps) {
     >
       <div
         ref={menuPanelRef}
-        className={cn("menu", isRTL ? "left-0" : "right-0")}
+        className={cn("sm-drawer-menu", isRTL ? "left-0" : "right-0")}
         id="menuPanel"
       >
         <div
           ref={menuBtnRef}
           onClick={toggleMenu}
           className={cn(
-            "menu-btn",
+            "sm-drawer-menu-btn",
             isRTL ? "left-0" : "right-0"
           )}
           id="menuBtn"
@@ -224,9 +224,9 @@ export default function SideMenu({ lang = "en" }: SideMenuProps) {
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
-          <div ref={btnSliderRef} className="menu-btn__slider" id="btnSlider">
-            <div className="menu-btn__item">
-              <div className="menu-btn__label">
+          <div ref={btnSliderRef} className="sm-drawer-menu-btn__slider" id="btnSlider">
+            <div className="sm-drawer-menu-btn__item">
+              <div className="sm-drawer-menu-btn__label">
                 <p className={isRTL ? "font-cairo font-semibold" : ""}>
                   {isRTL ? "القائمة" : "Menu"}
                 </p>
@@ -235,8 +235,8 @@ export default function SideMenu({ lang = "en" }: SideMenuProps) {
                 </p>
               </div>
             </div>
-            <div className="menu-btn__item menu-btn__item--close">
-              <div className="menu-btn__label">
+            <div className="sm-drawer-menu-btn__item sm-drawer-menu-btn__item--close">
+              <div className="sm-drawer-menu-btn__label">
                 <p className={isRTL ? "font-cairo font-semibold" : ""}>
                   {isRTL ? "إغلاق" : "Close"}
                 </p>
